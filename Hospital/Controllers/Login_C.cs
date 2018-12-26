@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Hospital
+namespace Hospital.Controllers
 {
-    public class Doctor
+    public class Login_C
     {
     }
 }

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital", "Hospital\Hospital.csproj", "{3E76FA4E-07DE-431C-B7EE-3ED60F6D5B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarketManager", "..\..\vs_git\SuperMarketManager\SuperMarketManager.csproj", "{C21DD4BC-0582-4BF3-87F8-34F3C9B8B067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +17,15 @@ Global
 		{3E76FA4E-07DE-431C-B7EE-3ED60F6D5B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E76FA4E-07DE-431C-B7EE-3ED60F6D5B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E76FA4E-07DE-431C-B7EE-3ED60F6D5B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21DD4BC-0582-4BF3-87F8-34F3C9B8B067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21DD4BC-0582-4BF3-87F8-34F3C9B8B067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21DD4BC-0582-4BF3-87F8-34F3C9B8B067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21DD4BC-0582-4BF3-87F8-34F3C9B8B067}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {057F922A-D868-47AB-BE9D-628B291EF9FC}
+		SolutionGuid = {A8AFBBFA-6AD2-4502-83CC-1295F34E2769}
 	EndGlobalSection
 EndGlobal
