@@ -121,6 +121,7 @@
     <Content Include="vendors\iconfonts\mdi\preview.html" />
     <Content Include="vendors\js\vendor.bundle.addons.js" />
     <Content Include="vendors\js\vendor.bundle.base.js" />
+    <Content Include="Views\Index\CashierIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Login\Admin.aspx" />
     <Content Include="Views\Login\PatientLogin.aspx" />
@@ -132,6 +133,13 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Index\CashierIndex.aspx.cs">
+      <DependentUpon>CashierIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Index\CashierIndex.aspx.designer.cs">
+      <DependentUpon>CashierIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
