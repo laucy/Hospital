@@ -106,6 +106,7 @@
     <Content Include="images\faces\face8.jpg" />
     <Content Include="images\faces\face9.jpg" />
     <Content Include="images\favicon.png" />
+    <Content Include="images\hoslogo.jpg" />
     <Content Include="images\logo-mini.svg" />
     <Content Include="images\hlogo.jpg" />
     <Content Include="images\logo.svg" />
@@ -121,6 +122,7 @@
     <Content Include="vendors\iconfonts\mdi\preview.html" />
     <Content Include="vendors\js\vendor.bundle.addons.js" />
     <Content Include="vendors\js\vendor.bundle.base.js" />
+    <Content Include="Views\CashierRegister\CashierRegister.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Login\Admin.aspx" />
@@ -133,6 +135,13 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\CashierRegister\CashierRegister.aspx.cs">
+      <DependentUpon>CashierRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CashierRegister\CashierRegister.aspx.designer.cs">
+      <DependentUpon>CashierRegister.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Index\CashierIndex.aspx.cs">
       <DependentUpon>CashierIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -15751,6 +15751,8 @@ button.bg-dark:focus {
 .ml-auto,
 .mx-auto {
   margin-left: auto !important;
+    top: 0px;
+    left: 0px;
 }
 
 @media (min-width: 576px) {

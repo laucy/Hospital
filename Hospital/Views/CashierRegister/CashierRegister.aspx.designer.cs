@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Hospital.Views.Login {
+namespace Hospital.Views.CashierRegister {
     
     
-    public partial class PatientLogin {
+    public partial class CashierRegister {
     }
 }

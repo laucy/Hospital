@@ -26,7 +26,7 @@
             <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
             <StaticSelectedStyle BackColor="#FFCC66" />
         </asp:Menu>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="DepartmentDataSource">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="DepartmentDataSource" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="DE_Name" HeaderText="DE_Name" SortExpression="DE_Name" />
             </Columns>
