@@ -94,19 +94,19 @@
         <ul class="nav">      
           <li class="nav-item">
             <a class="nav-link" href="index.html">
-              <span class="menu-title">挂号</span>
+              <span class="menu-title">首页</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-title">缴费</span>
+              <span class="menu-title">挂号</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">退出登录</span>
+              <span class="menu-title">缴费</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
           </li>

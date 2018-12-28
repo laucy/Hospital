@@ -20038,7 +20038,11 @@ code {
 
 /* Cards */
 .card {
-  border: 0;
+  border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    top: 0px;
+    left: 2px;
 }
 
 .card .card-body {
