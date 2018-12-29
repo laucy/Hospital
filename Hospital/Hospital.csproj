@@ -125,14 +125,14 @@
     <Content Include="vendors\js\vendor.bundle.base.js" />
     <Content Include="Views\CashierRegister\CashierRegister.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
+    <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
-    <Content Include="Views\Login\Admin.aspx" />
-    <Content Include="Views\Login\PatientLogin.aspx" />
+    <Content Include="Views\Index\Admin.aspx" />
+    <Content Include="Views\Login\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DB\DBManager.cs" />
-    <Compile Include="Controllers\Login_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
     <Compile Include="Controllers\User_C.cs" />
@@ -157,11 +157,18 @@
     <Compile Include="Views\Index\CashierIndex.aspx.designer.cs">
       <DependentUpon>CashierIndex.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login\Admin.aspx.cs">
+    <Compile Include="Views\Index\NurseIndex.aspx.cs">
+      <DependentUpon>NurseIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Index\NurseIndex.aspx.designer.cs">
+      <DependentUpon>NurseIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Index\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Login\Admin.aspx.designer.cs">
+    <Compile Include="Views\Index\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index\PatientIndex.aspx.cs">
@@ -171,12 +178,12 @@
     <Compile Include="Views\Index\PatientIndex.aspx.designer.cs">
       <DependentUpon>PatientIndex.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login\PatientLogin.aspx.cs">
-      <DependentUpon>PatientLogin.aspx</DependentUpon>
+    <Compile Include="Views\Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Login\PatientLogin.aspx.designer.cs">
-      <DependentUpon>PatientLogin.aspx</DependentUpon>
+    <Compile Include="Views\Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Data.Odbc;
 using System.Linq;
 using System.Web;
 
-namespace SuperMarketManager.Models
+namespace Hospital.Models
 {
     public class Employee
     {
@@ -33,11 +33,13 @@ namespace SuperMarketManager.Models
             while (reader.Read())
             {
                 employee = new Employee();
-                employee.ID = reader.GetString(0);
+                employee.ID = reader.GetInt32(0).ToString();
                 employee.Name = reader.GetString(1);
                 employee.Sex = reader.GetString(2);
+                int De_id = reader.GetInt32(3);//科室编号
+                //查找科室名称
                 employee.Phone = reader.GetString(3);
-                employee.Position = reader.GetInt32(7);
+                employee.Position = reader.GetInt32(4);
                 list.Add(employee);
             }
             return list;

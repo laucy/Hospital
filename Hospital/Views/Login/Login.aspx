@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PatientLogin.aspx.cs" Inherits="Hospital.Views.Login.PatientLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Hospital.Views.Login.PatientLogin" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,15 +31,15 @@
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="../../images/hlogo.jpg"></div>
               <h4> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎来到双口医院！</h4>
               <h6 class="font-weight-light"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用户登录</h6>
-              <form class="pt-3">
+              <form class="pt-3" runat="server">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="用户名">
+                  <input type="text" class="form-control form-control-lg" id="UserID" runat="server" placeholder="用户名">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="密码">
+                  <input type="password" class="form-control form-control-lg" id="Password" runat="server" placeholder="密码">
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">登录</a>
+                  <asp:Button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" ID="but_login" OnClick="but_login_Click" runat="server" Text="登录"></asp:Button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
