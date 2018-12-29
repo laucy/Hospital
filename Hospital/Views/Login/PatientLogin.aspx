@@ -39,7 +39,7 @@
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="密码">
                 </div>
                 <div class="mt-3">
-                  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="login">登录</button>
+                  <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">登录</a>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">

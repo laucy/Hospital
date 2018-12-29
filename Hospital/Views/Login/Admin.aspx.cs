@@ -18,10 +18,5 @@ namespace Hospital.Views.Login
         {
 
         }
-
-        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
-        {
-            this.GridView1.Visible = false;
-        }
     }
 }
