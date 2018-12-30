@@ -5,6 +5,7 @@ using System.Web;
 using Hospital.Models;
 using System.Data.Odbc;
 using Hospital.Controllers.DB;
+using System.Data;
 
 namespace Hospital.Controllers
 {
@@ -27,22 +28,6 @@ namespace Hospital.Controllers
                 sqlConnection1.Close();
             return null;
         }
-    }
-}
-using Hospital.Models;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Odbc;
-using System.Linq;
-using System.Web;
-
-namespace Hospital.Controllers
-
-{
-    public class Department_C
-    {
-        //查找
         public static List<Department> GetDepartmentName()
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();

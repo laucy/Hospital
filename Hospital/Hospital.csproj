@@ -136,7 +136,6 @@
     <Compile Include="Controllers\DB\DBManager.cs" />
     <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Employee\Employee_C.cs" />
-    <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Doctor\Case_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
