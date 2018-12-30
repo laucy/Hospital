@@ -14,8 +14,10 @@ namespace Hospital.Views.Index
         protected void Page_Load(object sender, EventArgs e)
         {
             //根据session中保存的id添加tree
-            Department dep = Department_C.DE_seekname(Session["uid"].ToString());
-            TreeView1.Nodes.Add(new TreeNode("root"));
+            Employee emp = Employee_C.SeekDep(Session["uid"].ToString());
+            Department dep = Department_C.DE_seekname(emp.DE_ID.ToString());
+            TreeNode root = new TreeNode(dep.DE_Name);
+            TreeView1.Nodes.Add(root);
 
         }
 
