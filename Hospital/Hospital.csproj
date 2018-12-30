@@ -178,13 +178,6 @@
     <Compile Include="Views\Index\PatientIndex.aspx.designer.cs">
       <DependentUpon>PatientIndex.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Login\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\maps\style.css.map" />

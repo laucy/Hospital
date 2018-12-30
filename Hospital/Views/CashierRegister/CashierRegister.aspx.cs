@@ -20,8 +20,8 @@ namespace Hospital.Views.CashierRegister
             bool result = Patient_C.Insert(pname.Value,psex.Value,ppage.Value, pphone.Value);           
             if (result)
             {
-
-                Response.Write("<script language=javascript>window.alert('挂号成功');</script>");              
+                string patientid = Patient_C.GetPatientid(pname.Value);
+                Response.Write("<script language=javascript>window.alert('挂号成功,您的编号为:"+ patientid + "');</script>");              
                 pname.Value = null;
                 psex.Value = "男";
                 ppage.Value = null;
