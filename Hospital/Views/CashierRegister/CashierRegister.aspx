@@ -128,12 +128,12 @@
                             关心病人，服务病人！
                         </h3>
                     </div>
-                    <form runat="server">
+                   <form runat="server">
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">挂号</h4>
-                                    <form class="form-sample">
+                                   
                                         <p class="card-description">
                                             Patient Register
                                         </p>
@@ -155,7 +155,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row"> 
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">性别</label>
@@ -180,13 +180,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">科室</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control">
-                                                            <option>内科</option>
-                                                            <option>外科</option>
-                                                            <option>口腔科</option>
-                                                            <option>精神科</option>
-                                                        </select>
+                                                    <div class="col-sm-9">                                                                                                              
+                                                        <asp:DropDownList runat="server" class="form-control" ID="department" OnSelectedIndexChanged="department_SelectedIndexChanged"></asp:DropDownList>                                               
                                                     </div>
                                                 </div>
                                             </div>
@@ -195,10 +190,10 @@
                                                     <label class="col-sm-3 col-form-label">医生</label>
                                                     <div class="col-sm-9">
                                                         <select class="form-control">
-                                                            <option>李医生</option>
-                                                            <option>任医生</option>
-                                                            <option>赵医生</option>
-                                                            <option>贾医生</option>
+                                                            <option>张均</option>
+                                                            <option>李航</option>
+                                                            <option>郑法雷</option>
+                                                            <option>于晓初</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -213,7 +208,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                   
                                 </div>
                             </div>
                         </div>

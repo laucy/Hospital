@@ -17,7 +17,7 @@ namespace Hospital.Controllers.Patient
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //查找
-        public static string  GetPatientid(string pname)
+        public static string GetPatientid(string pname)
         {
              OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
              odbcConnection.Open();
