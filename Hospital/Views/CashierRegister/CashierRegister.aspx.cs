@@ -18,6 +18,7 @@ namespace Hospital.Views.CashierRegister
         {
             de = Department_C.GetDepartmentName();
             this.department.DataSource = de;
+            this.department.DataTextField = "DE_Name";
             this.department.DataBind();
         }
 

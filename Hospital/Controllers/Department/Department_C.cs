@@ -16,7 +16,7 @@ namespace Hospital.Controllers
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "SELECT * FROM `hospital`.`department` ";
+            string sql = "SELECT DE_Name FROM `hospital`.`department` ";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
             if (odbcDataReader.HasRows)

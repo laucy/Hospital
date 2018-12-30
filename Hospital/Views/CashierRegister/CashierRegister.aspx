@@ -189,12 +189,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">医生</label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control">
-                                                            <option>张均</option>
-                                                            <option>李航</option>
-                                                            <option>郑法雷</option>
-                                                            <option>于晓初</option>
-                                                        </select>
+                                                       <asp:DropDownList runat="server" class="form-control" ID="doctor"></asp:DropDownList>                                               
+
                                                     </div>
                                                 </div>
                                             </div>
