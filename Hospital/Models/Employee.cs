@@ -8,22 +8,24 @@ namespace Hospital.Models
 {
     public class Employee
     {
-        public string ID { get; set; }
-        public string Name { get; set; }
-        public string Sex { get; set; }
-        public int Age { set; get; }
-        public string Department { get; set; }
-        public string Phone { get; set; }             
-        public int Position { get; set; }
+        public int E_ID { get; set; }
+        public string E_Name { get; set; }
+        public string E_Sex { get; set; }
+        public int E_Age { set; get; }
+        public int DE_ID { get; set; }
+        public string E_Position { get; set; }             
+        public string E_Phone { get; set; }
         public Employee() { }
 
-        public Employee(string name, string sex, string phone, 
-             int position)
+        public Employee(string ename, string esex,int eage, int deid,string ephone, 
+             string eposition)
         {
-            Name = name;
-            Sex = sex;
-            Phone = phone;           
-            Position = position;
+            E_Name = ename;
+            E_Sex = esex;
+            E_Age = eage;
+            DE_ID = deid;
+            E_Position = eposition;
+            E_Phone = ephone;
         }
 
         public static List<Employee> getList(OdbcDataReader reader)
@@ -33,14 +35,14 @@ namespace Hospital.Models
             while (reader.Read())
             {
                 employee = new Employee();
-                employee.ID = reader.GetInt32(0).ToString();
-                employee.Name = reader.GetString(1);
-                employee.Sex = reader.GetString(2);
-                int De_id = reader.GetInt32(3);//科室编号
-                //查找科室名称
-
-                employee.Phone = reader.GetString(3);
-                employee.Position = reader.GetInt32(4);
+                employee.E_ID = reader.GetInt32(0);
+                employee.E_Name = reader.GetString(1);
+                employee.E_Sex = reader.GetString(2);
+                employee.E_Age = reader.GetInt32(3);
+                employee. DE_ID=reader.GetInt32(4);//科室编号
+                //查找科室名称               
+                employee.E_Position = reader.GetString(5);
+                employee.E_Phone = reader.GetString(6);
                 list.Add(employee);
             }
             return list;

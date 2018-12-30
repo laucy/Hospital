@@ -19,19 +19,21 @@ namespace Hospital.Controllers.Patient
         //查找
         public static string  GetPatientid(string pname)
         {
-            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
-            odbcConnection.Open();
-            string sql = "SELECT P_ID FROM `hospital`.`patient` WHERE `P_NAME`=info";
-            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
-            OdbcDataReader reader = odbcCommand.ExecuteReader();
-            if (reader.Read())
-            {
-                odbcConnection.Close();
-                return reader[0].ToString();
+             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+             odbcConnection.Open();
+             string sql = "SELECT P_ID FROM `hospital`.`patient` WHERE `P_NAME`='"+pname+"'";
+             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+             OdbcDataReader reader = odbcCommand.ExecuteReader();
+             if (reader.Read())
+             {
+                string patientid=reader[0].ToString();
+                odbcConnection.Close();     
+                return patientid;
 
-            }
-            odbcConnection.Close();
-            return null;
+             }
+             odbcConnection.Close();
+             return null;
+            
         }
 
     }

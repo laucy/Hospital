@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
 using System.Web;
+using System.Data.Odbc;
 
 namespace Hospital.Models
 {
     public class Department
     {
-        public string DE_ID { set; get; }
-        public string DE_Name { set; get; }
-        public Department()
-        { }
-        public Department(string id)
+        public int DE_ID { get; set; }
+        public string DE_Name { get; set; }
+        
+        public Department() { }
+
+        public Department(int deid, string dename)
         {
-            DE_ID = id;
+            DE_ID = deid;
+            DE_Name = dename;          
         }
 
-        internal static List<Department> getList(OdbcDataReader reader)
+        public static List<Department> getList(OdbcDataReader reader)
         {
             List<Department> list = new List<Department>();
-            Department dep;
+            Department department;
             while (reader.Read())
             {
-                dep = new Department();
-                dep.DE_ID = reader.GetInt32(0).ToString();
-                dep.DE_Name = reader.GetString(1);
-                list.Add(dep);
+                department = new Department();
+                department.DE_ID = reader.GetInt32(0);
+                department.DE_Name = reader.GetString(1);                
+                list.Add(department);
             }
             return list;
         }
