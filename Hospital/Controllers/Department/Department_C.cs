@@ -5,6 +5,7 @@ using System.Web;
 using Hospital.Models;
 using System.Data.Odbc;
 using Hospital.Controllers.DB;
+using System.Data;
 
 namespace Hospital.Controllers
 {
@@ -26,6 +27,23 @@ namespace Hospital.Controllers
             else
                 sqlConnection1.Close();
             return null;
+        }
+        public static List<Department> GetDepartmentName()
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT DE_Name FROM `hospital`.`department` ";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (odbcDataReader.HasRows)
+            {
+                List<Department> list = Department.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+
         }
     }
 }
