@@ -5,21 +5,22 @@ using System.Web;
 using Hospital.Models;
 using System.Data.Odbc;
 using Hospital.Controllers.DB;
+using System.Data;
 
 namespace Hospital.Controllers
 {
-    public class Department_C
+    public class Employee_C
     {
-        public static Department DE_seekname(string id)
+        public static Employee SeekDep(string id)
         {
             OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
             sqlConnection1.Open();
-            OdbcCommand odbcCommand = new OdbcCommand("select * from department where DE_ID='" + id + "'", sqlConnection1);
+            OdbcCommand odbcCommand = new OdbcCommand("select * from employee where E_ID='" + id + "'", sqlConnection1);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
 
             if (odbcDataReader.HasRows)
             {
-                List<Department> list = Department.getList(odbcDataReader);
+                List<Employee> list = Employee.getList(odbcDataReader);
                 sqlConnection1.Close();
                 return list[0];
             }
@@ -27,38 +28,27 @@ namespace Hospital.Controllers
                 sqlConnection1.Close();
             return null;
         }
-    }
-}
-using Hospital.Models;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Odbc;
-using System.Linq;
-using System.Web;
-
-namespace Hospital.Controllers
-
-{
-    public class Department_C
-    {
-        //查找
-        public static List<Department> GetDepartmentName()
+        public static List<Employee> SelectFuzzy(string info)
         {
-            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            string sql = "SELECT * FROM employee "
+                + "WHERE `E_ID` LIKE '%" + info + "%'"
+                + "OR `E_Name` LIKE '%" + info + "%'"
+                + "OR `E_Sex` LIKE '%" + info + "%'"
+                + "OR `E_Phone` LIKE '%" + info + "%'"
+                + "OR `E_Position` LIKE '%" + info + "%'";
+            OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "SELECT DE_Name FROM `hospital`.`department` ";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
             if (odbcDataReader.HasRows)
             {
-                List<Department> list = Department.getList(odbcDataReader);
+                List<Employee> list = Employee.getList(odbcDataReader);
                 odbcConnection.Close();
                 return list;
             }
-            odbcConnection.Close();
+            else
+                odbcConnection.Close();
             return null;
-
         }
     }
 }

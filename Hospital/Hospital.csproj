@@ -45,6 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -128,11 +129,13 @@
     <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
-    <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\LLogin\LLogin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DB\DBManager.cs" />
+    <Compile Include="Controllers\Department\Department_C.cs" />
+    <Compile Include="Controllers\Employee\Employee_C.cs" />
     <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Doctor\Case_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
@@ -181,6 +184,13 @@
     </Compile>
     <Compile Include="Views\Index\PatientIndex.aspx.designer.cs">
       <DependentUpon>PatientIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LLogin\LLogin.aspx.cs">
+      <DependentUpon>LLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LLogin\LLogin.aspx.designer.cs">
+      <DependentUpon>LLogin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
