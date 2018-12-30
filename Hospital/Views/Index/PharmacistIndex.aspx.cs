@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Hospital.Views.Login
+namespace Hospital.Views.Pharmacist
 {
-    public partial class PatientLogin : System.Web.UI.Page
+    public partial class PharmacistIndex : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
         }
     }
 }

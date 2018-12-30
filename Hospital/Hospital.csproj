@@ -124,10 +124,14 @@
     <Content Include="vendors\js\vendor.bundle.addons.js" />
     <Content Include="vendors\js\vendor.bundle.base.js" />
     <Content Include="Views\CashierRegister\CashierRegister.aspx" />
+    <Content Include="Views\Doctor\Case.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
+    <Content Include="Views\Index\DoctorIndex.html" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Login\Admin.aspx" />
     <Content Include="Views\Login\PatientLogin.aspx" />
+    <Content Include="Views\Index\PharmacistIndex.aspx" />
+    <Content Include="Views\Pharmacist\Storage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +143,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Drug.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\User.cs" />
@@ -149,6 +154,13 @@
     </Compile>
     <Compile Include="Views\CashierRegister\CashierRegister.aspx.designer.cs">
       <DependentUpon>CashierRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\Case.aspx.cs">
+      <DependentUpon>Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Doctor\Case.aspx.designer.cs">
+      <DependentUpon>Case.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index\CashierIndex.aspx.cs">
       <DependentUpon>CashierIndex.aspx</DependentUpon>
@@ -177,6 +189,20 @@
     </Compile>
     <Compile Include="Views\Login\PatientLogin.aspx.designer.cs">
       <DependentUpon>PatientLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Index\PharmacistIndex.aspx.cs">
+      <DependentUpon>PharmacistIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Index\PharmacistIndex.aspx.designer.cs">
+      <DependentUpon>PharmacistIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pharmacist\Storage.aspx.cs">
+      <DependentUpon>Storage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Pharmacist\Storage.aspx.designer.cs">
+      <DependentUpon>Storage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
