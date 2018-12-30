@@ -27,7 +27,7 @@ namespace Hospital.Models
             {
                 department = new Department();
                 department.DE_ID = reader.GetInt32(0);
-                department.DE_Name = reader.GetString(1);                
+                department.DE_Name = reader.GetString(0);                
                 list.Add(department);
             }
             return list;
