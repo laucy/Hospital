@@ -11,7 +11,8 @@ namespace Hospital.Views.Index
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //根据session中保存的id添加tree
         }
+
     }
 }

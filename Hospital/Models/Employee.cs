@@ -38,6 +38,7 @@ namespace Hospital.Models
                 employee.Sex = reader.GetString(2);
                 int De_id = reader.GetInt32(3);//科室编号
                 //查找科室名称
+
                 employee.Phone = reader.GetString(3);
                 employee.Position = reader.GetInt32(4);
                 list.Add(employee);
