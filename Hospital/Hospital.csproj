@@ -130,6 +130,7 @@
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
     <Content Include="Views\LLogin\LLogin.aspx" />
+    <Content Include="Views\Nurse\Nurse_AdviceManage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="Views\LLogin\LLogin.aspx.designer.cs">
       <DependentUpon>LLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Nurse\Nurse_AdviceManage.aspx.cs">
+      <DependentUpon>Nurse_AdviceManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Nurse\Nurse_AdviceManage.aspx.designer.cs">
+      <DependentUpon>Nurse_AdviceManage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

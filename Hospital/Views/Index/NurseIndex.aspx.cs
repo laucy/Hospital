@@ -16,8 +16,9 @@ namespace Hospital.Views.Index
             //根据session中保存的id添加tree
             Employee emp = Employee_C.SeekDep(Session["uid"].ToString());
             Department dep = Department_C.DE_seekname(emp.DE_ID.ToString());
-            TreeNode root = new TreeNode(dep.DE_Name);
-            TreeView1.Nodes.Add(root);
+            show_depart.InnerHtml = dep.DE_Name;
+            //TreeNode root = new TreeNode(dep.DE_Name);
+            //TreeView1.Nodes.Add(root);
 
         }
 
