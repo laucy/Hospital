@@ -10,7 +10,7 @@ namespace Hospital.Controllers.DB
     {
         public static OdbcConnection GetOdbcConnection()
         {
-            return new OdbcConnection("Dsn=mysql;uid=root");
+            return new OdbcConnection("Dsn=mysql;uid=root;pwd=lx123");
         }
     }
 }
