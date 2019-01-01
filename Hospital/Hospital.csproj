@@ -134,12 +134,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DB\DBManager.cs" />
+    <Compile Include="Controllers\Department\Department_C.cs" />
+    <Compile Include="Controllers\Doctor\Case_C.cs" />
+    <Compile Include="Controllers\Employee\Employee_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
     <Compile Include="Controllers\User_C.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Drug.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Patient.cs" />
