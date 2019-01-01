@@ -1,10 +1,11 @@
-﻿using Hospital.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Data;
 using System.Data.Odbc;
 
-namespace Hospital.Controllers
+namespace Hospital.Controllers.Patient
 {
     public class Patient_C
     {      
@@ -16,37 +17,24 @@ namespace Hospital.Controllers
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //查找
-        public static string  GetPatientid(string pname)
+        public static string GetPatientid(string pname)
         {
-            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
-            odbcConnection.Open();
-            string sql = "SELECT P_ID FROM `hospital`.`patient` WHERE `P_NAME`=info";
-            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
-            OdbcDataReader reader = odbcCommand.ExecuteReader();
-            if (reader.Read())
-            {
-                odbcConnection.Close();
-                return reader[0].ToString();
-            }
-            odbcConnection.Close();
-            return null;
+             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+             odbcConnection.Open();
+             string sql = "SELECT P_ID FROM `hospital`.`patient` WHERE `P_NAME`='"+pname+"'";
+             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+             OdbcDataReader reader = odbcCommand.ExecuteReader();
+             if (reader.Read())
+             {
+                string patientid=reader[0].ToString();
+                odbcConnection.Close();     
+                return patientid;
+
+             }
+             odbcConnection.Close();
+             return null;
+            
         }
-        public static List<Patient> GetPatientinformation(string pid)
-        {
-            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
-            odbcConnection.Open();
-            string sql = "SELECT * FROM `hospital`.`patient` WHERE `P_ID`='" + Convert.ToInt32(pid) +"'";
-            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
-            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
-            if (odbcDataReader.HasRows)
-            {
-                List<Patient> list = Patient.getList(odbcDataReader);
-                odbcConnection.Close();
-                return list;
-            }
-            else
-                odbcConnection.Close();
-            return null;
-        }
+
     }
 }

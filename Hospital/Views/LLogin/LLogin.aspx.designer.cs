@@ -7,36 +7,36 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Hospital.Views.Index {
+namespace Hospital.Views.LLogin {
     
     
-    public partial class NurseIndex {
+    public partial class LLogin {
         
         /// <summary>
-        /// form1 控件。
+        /// UserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText UserID;
         
         /// <summary>
-        /// TreeView1 控件。
+        /// Password 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView TreeView1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
         
         /// <summary>
-        /// show_depart 控件。
+        /// but_login 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl show_depart;
+        protected global::System.Web.UI.WebControls.Button but_login;
     }
 }

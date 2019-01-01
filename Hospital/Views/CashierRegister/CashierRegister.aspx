@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CashierRegister.aspx.cs" Inherits="Hospital.Views.CashierRegister.CashierRegister" %>
 
+<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,12 +130,12 @@
                             关心病人，服务病人！
                         </h3>
                     </div>
-                    <form runat="server">
+                   <form runat="server">
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">挂号</h4>
-                                    <form class="form-sample">
+                                   
                                         <p class="card-description">
                                             Patient Register
                                         </p>
@@ -155,7 +157,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row"> 
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">性别</label>
@@ -180,13 +182,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">科室</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control">
-                                                            <option>内科</option>
-                                                            <option>外科</option>
-                                                            <option>口腔科</option>
-                                                            <option>精神科</option>
-                                                        </select>
+                                                    <div class="col-sm-9">                                                                                                              
+                                                        <asp:DropDownList runat="server" class="form-control" ID="department" OnSelectedIndexChanged="department_SelectedIndexChanged"></asp:DropDownList>                                               
                                                     </div>
                                                 </div>
                                             </div>
@@ -194,12 +191,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">医生</label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control">
-                                                            <option>李医生</option>
-                                                            <option>任医生</option>
-                                                            <option>赵医生</option>
-                                                            <option>贾医生</option>
-                                                        </select>
+                                                       <asp:DropDownList runat="server" class="form-control" ID="doctor"></asp:DropDownList>                                               
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,7 +206,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                   
                                 </div>
                             </div>
                         </div>
