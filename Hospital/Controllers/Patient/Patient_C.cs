@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Hospital.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.Odbc;
 
-namespace Hospital.Controllers.Patient
+namespace Hospital.Controllers
 {
     public class Patient_C
     {      
@@ -28,11 +27,26 @@ namespace Hospital.Controllers.Patient
             {
                 odbcConnection.Close();
                 return reader[0].ToString();
-
             }
             odbcConnection.Close();
             return null;
         }
-
+        public static List<Patient> GetPatientinformation(string pid)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT * FROM `hospital`.`patient` WHERE `P_ID`='" + Convert.ToInt32(pid) +"'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+            if (odbcDataReader.HasRows)
+            {
+                List<Patient> list = Patient.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            else
+                odbcConnection.Close();
+            return null;
+        }
     }
 }

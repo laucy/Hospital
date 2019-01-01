@@ -1,4 +1,4 @@
-﻿using Hospital.Controllers.Patient;
+﻿using Hospital.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
