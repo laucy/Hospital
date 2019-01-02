@@ -131,6 +131,8 @@
     <Content Include="Views\Index\Admin.aspx" />
     <Content Include="Views\LLogin\LLogin.aspx" />
     <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx" />
+    <Content Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx" />
     <Content Include="Views\Payment\Payment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -199,6 +201,20 @@
     </Compile>
     <Compile Include="Views\LLogin\LLogin.aspx.designer.cs">
       <DependentUpon>LLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx.cs">
+      <DependentUpon>PatientBillSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx.designer.cs">
+      <DependentUpon>PatientBillSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx.cs">
+      <DependentUpon>PatientCaseSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx.designer.cs">
+      <DependentUpon>PatientCaseSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Payment\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
