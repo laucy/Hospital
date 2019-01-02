@@ -129,7 +129,9 @@
     <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
+    <Content Include="Views\LLogin\LLogin.aspx" />
     <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\Payment\Payment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +192,20 @@
     </Compile>
     <Compile Include="Views\Index\PatientIndex.aspx.designer.cs">
       <DependentUpon>PatientIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LLogin\LLogin.aspx.cs">
+      <DependentUpon>LLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LLogin\LLogin.aspx.designer.cs">
+      <DependentUpon>LLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payment\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

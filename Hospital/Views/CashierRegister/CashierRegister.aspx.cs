@@ -16,10 +16,13 @@ namespace Hospital.Views.CashierRegister
         public List<Department> de;
         protected void Page_Load(object sender, EventArgs e)
         {
-            de = Department_C.GetDepartmentName();
-            this.department.DataSource = de;
-            this.department.DataTextField = "DE_Name";
-            this.department.DataBind();
+            if (!IsPostBack)
+            {
+                de = Department_C.GetDepartmentName();
+                this.department.DataSource = de;
+                this.department.DataTextField = "DE_Name";
+                this.department.DataBind();
+            }         
         }
 
        protected void cashbutton_Click(object sender, EventArgs e)
@@ -28,7 +31,9 @@ namespace Hospital.Views.CashierRegister
              if (result)
              {
                  string patientid = Patient_C.GetPatientid(pname.Value);
-                 bool resultcase = Case_C.Insert(Convert.ToInt32(patientid),1000,null, null, null);
+                 List<Employee> employees = Employee_C.SelectFuzzy(doctor.SelectedValue);
+                 int doctorid = employees[0].E_ID;
+                 bool resultcase = Case_C.Insert(Convert.ToInt32(patientid), doctorid, null, null, null);                
                  Response.Write("<script language=javascript>window.alert('挂号成功,您的编号为:"+ patientid + "');</script>");              
                  pname.Value = null;
                  psex.Value = "男";
@@ -51,7 +56,10 @@ namespace Hospital.Views.CashierRegister
 
         protected void department_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            List<Employee> employees2 = Employee_C.SelectEmployee(department.Text);            
+            this.doctor.DataSource = employees2;
+            this.doctor.DataTextField = "E_Name";
+            this.doctor.DataBind();
         }
     }
 }

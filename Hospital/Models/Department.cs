@@ -18,7 +18,7 @@ namespace Hospital.Models
             DE_ID = deid;
             DE_Name = dename;          
         }
-
+        //id和名称均获取
         public static List<Department> getList(OdbcDataReader reader)
         {
             List<Department> list = new List<Department>();
@@ -26,8 +26,21 @@ namespace Hospital.Models
             while (reader.Read())
             {
                 department = new Department();
-                //department.DE_ID = reader.GetInt32(0);
-                department.DE_Name = reader.GetString(0);              
+                department.DE_ID = reader.GetInt32(0);
+                department.DE_Name = reader.GetString(1);              
+                list.Add(department);
+            }
+            return list;
+        }
+        //只获取名称
+        public static List<Department> getList2(OdbcDataReader reader)
+        {
+            List<Department> list = new List<Department>();
+            Department department;
+            while (reader.Read())
+            {
+                department = new Department();
+                department.DE_Name = reader.GetString(0);
                 list.Add(department);
             }
             return list;
