@@ -129,29 +129,35 @@
     <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
+    <Content Include="Views\LLogin\LLogin.aspx" />
     <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\Nurse\Nurse_AdviceManage.aspx" />
+    <Content Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx" />
+    <Content Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx" />
+    <Content Include="Views\Payment\Payment.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DB\DBManager.cs" />
     <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Doctor\Case_C.cs" />
-    <Compile Include="Controllers\Drug\Drug_C.cs" />
     <Compile Include="Controllers\Employee\Employee_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
-    <Compile Include="Controllers\Prescript_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
     <Compile Include="Controllers\User_C.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AssessmentItem.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Drug.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Hospitalization.cs" />
+    <Compile Include="Models\Instrument.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Prescript.cs" />
+    <Compile Include="Models\Sickbed.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\CashierRegister\CashierRegister.aspx.cs">
@@ -196,12 +202,40 @@
     <Compile Include="Views\Index\PatientIndex.aspx.designer.cs">
       <DependentUpon>PatientIndex.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\LLogin\LLogin.aspx.cs">
+      <DependentUpon>LLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LLogin\LLogin.aspx.designer.cs">
+      <DependentUpon>LLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Nurse\Nurse_AdviceManage.aspx.cs">
       <DependentUpon>Nurse_AdviceManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Nurse\Nurse_AdviceManage.aspx.designer.cs">
       <DependentUpon>Nurse_AdviceManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx.cs">
+      <DependentUpon>PatientBillSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx.designer.cs">
+      <DependentUpon>PatientBillSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx.cs">
+      <DependentUpon>PatientCaseSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx.designer.cs">
+      <DependentUpon>PatientCaseSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payment\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

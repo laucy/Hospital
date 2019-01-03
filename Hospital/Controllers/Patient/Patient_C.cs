@@ -16,7 +16,7 @@ namespace Hospital.Controllers
                 "values('" + pname + "', '" + psex + "', '" + Convert.ToInt32(page) + "','" + pphone + "')";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
-        //查找
+        //根据病人名字查找病人id
         public static string GetPatientid(string pname)
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
