@@ -27,5 +27,22 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
+        //药品ID查药品单价
+        public static float GetSellingPrice(int did)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT D_SellingPrice FROM `hospital`.`drug` WHERE `D_ID`='" + did + "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader reader = odbcCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                float D_SellingPrice = (float)reader[0];
+                odbcConnection.Close();
+                return D_SellingPrice;
+            }
+            odbcConnection.Close();
+            return 0;
+        }
     }
 }

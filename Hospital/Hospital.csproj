@@ -141,8 +141,10 @@
     <Compile Include="Controllers\DB\DBManager.cs" />
     <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Doctor\Case_C.cs" />
+    <Compile Include="Controllers\Drug\Drug_C.cs" />
     <Compile Include="Controllers\Employee\Employee_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
+    <Compile Include="Controllers\Prescript_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
     <Compile Include="Controllers\User_C.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +158,7 @@
     <Compile Include="Models\Hospitalization.cs" />
     <Compile Include="Models\Instrument.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Prescript.cs" />
     <Compile Include="Models\Sickbed.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\User.cs" />

@@ -188,7 +188,6 @@
                         <td><%=Convert.ToString(drugs[i].D_Store) %></td>
                                    </tr>
                                    <%} %>
-                            
                     </tbody>
                   </table>
                 </div>
@@ -209,14 +208,16 @@
                       </tr>
                     </thead>
                     <tbody>
-                           <%for ( i = 0; i < drugs.Count ; i++)
+                           <%for ( j = 0; i < prescripts.Count ; j++)
                                                             {%>
                         <tr>
-                        <td><%=drugs[i].D_ID %></td><%} %>
-                        <td>Photoshop</td>
-                        <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                        <td><label class="badge badge-danger">Pending</label></td>
+                        <td><%=prescripts[j].D_ID %></td>
+                        <td><%=prescripts[j].D_Name %></td>
+                        <td><%=prescripts[j].D_Number %></td>
+                        <td><%=prescripts[j].D_Totalprice %></td>
+                        <td><%=prescripts[j].P_Notes %></td>                        
                         </tr>
+                        <%} %>
                     </tbody>
                   </table>
                 </div>
