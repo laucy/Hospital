@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.Odbc;
+using Hospital.Models;
 
-namespace Hospital.Controllers.Doctor
+namespace Hospital.Controllers
 {
     public class Case_C
     {
@@ -15,5 +18,22 @@ namespace Hospital.Controllers.Doctor
                 ",'" + ccomplain + "','" + cdiagnose + "','" + cadvice + "')";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
-    }
+        //根据病人ID查找病历ID
+        public static String GetCaseID(int pid)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT C_ID FROM `hospital`.`case` WHERE `P_ID`='" + pid+ "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader reader = odbcCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                string c_id = reader[0].ToString();
+                odbcConnection.Close();
+                return c_id;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+    }  
 }

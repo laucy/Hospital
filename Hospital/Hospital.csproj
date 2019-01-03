@@ -130,23 +130,28 @@
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
     <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\Nurse\Nurse_AdviceManage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DB\DBManager.cs" />
     <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Doctor\Case_C.cs" />
+    <Compile Include="Controllers\Drug\Drug_C.cs" />
     <Compile Include="Controllers\Employee\Employee_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
+    <Compile Include="Controllers\Prescript_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
     <Compile Include="Controllers\User_C.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Drug.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Prescript.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\CashierRegister\CashierRegister.aspx.cs">
@@ -190,6 +195,13 @@
     </Compile>
     <Compile Include="Views\Index\PatientIndex.aspx.designer.cs">
       <DependentUpon>PatientIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Nurse\Nurse_AdviceManage.aspx.cs">
+      <DependentUpon>Nurse_AdviceManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Nurse\Nurse_AdviceManage.aspx.designer.cs">
+      <DependentUpon>Nurse_AdviceManage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

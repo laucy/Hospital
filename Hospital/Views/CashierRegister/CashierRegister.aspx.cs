@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Hospital.Controllers.Doctor;
+using Hospital.Controllers;
 using Hospital.Controllers;
 using Hospital.Models;
 
