@@ -1,12 +1,12 @@
-﻿using Hospital.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Odbc;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.Odbc;
+using Hospital.Models;
 
-namespace Hospital.Controllers.Doctor
+namespace Hospital.Controllers
 {
     public class Case_C
     {
@@ -18,23 +18,22 @@ namespace Hospital.Controllers.Doctor
                 ",'" + ccomplain + "','" + cdiagnose + "','" + cadvice + "')";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
-        //根据病人id查询病历id
-        public static List<Case> SelectCID(string patientid)
+        //根据病人ID查找病历ID
+        public static String GetCaseID(int pid)
         {
-            string sql = "SELECT * FROM  `case` WHERE `P_ID`='"+patientid+"'";
-            OdbcConnection odbcConnection =DB. DBManager.GetOdbcConnection();
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
+            string sql = "SELECT C_ID FROM `hospital`.`case` WHERE `P_ID`='" + pid+ "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
-            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
-            if (odbcDataReader.HasRows)
+            OdbcDataReader reader = odbcCommand.ExecuteReader();
+            if (reader.Read())
             {
-                List<Case> list = Case.getList(odbcDataReader);
+                string c_id = reader[0].ToString();
                 odbcConnection.Close();
-                return list;
+                return c_id;
             }
-            else
-                odbcConnection.Close();
+            odbcConnection.Close();
             return null;
         }
-    }
+    }  
 }
