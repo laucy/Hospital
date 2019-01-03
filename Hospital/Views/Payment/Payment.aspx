@@ -136,7 +136,7 @@
                   <asp:TextBox ID="pid" runat="server"></asp:TextBox>
                   <asp:Label ID="patientname" runat="server" Text="病人姓名"></asp:Label>
                   <asp:TextBox ID="pname" runat="server"></asp:TextBox>&nbsp&nbsp&nbsp  
-                  <asp:Button ID="search" CssClass="btn btn-gradient-primary mr-2" runat="server" Text="查询" />
+                  <asp:Button ID="search" CssClass="btn btn-gradient-primary mr-2" OnClick="search_Click" runat="server" Text="查询" />
                 </div>
               </div>
             </div>            
@@ -233,48 +233,36 @@
                         <th>
                           数量
                         </th>
+                         <th>
+                          时间
+                        </th>
                         <th>
                           金额
                         </th>                       
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-1.png" alt="image"/>
-                        </td>
-                        <td>
-                          Herman Beck
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $ 77.99
-                        </td>
-                       
-                      </tr>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-2.png" alt="image"/>
-                        </td>
-                        <td>
-                          Messsy Adam
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $245.30
-                        </td>
-                        
-                      </tr>
+                    <%if (tests!= null)
+                    { %>
+                      <%for (int i = 0; i <tests.Count; i++)
+                       { %>
+                        <tr>
+                         <td><%=tests[i].IT_Name %>                  </td>
+                         <td><%=tests[i].IT_Price %></td>
+                         <td> 1 </td>
+                         <td><%=tests[i].T_Date %></td>    
+                         <td><%=tests[i].IT_Price %></td>                      
+                       </tr> 
+                      <%} %>
+                    <%} %>
                     </tbody>
                   </table>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <label>总计：</label> 
+                  <asp:Label ID="sum2" runat="server"></asp:Label>
                 </div>
               </div>
             </div>            

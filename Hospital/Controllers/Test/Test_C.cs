@@ -1,6 +1,8 @@
 ﻿using Hospital.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Odbc;
 using System.Linq;
 using System.Web;
 
@@ -9,21 +11,17 @@ namespace Hospital.Controllers
     public class Test_C
     {
         //已知病人id查询检查项目和价格
-        public static List<Test> SelectFuzzy(string info)
+        public static List<Test> SelectTest(int patientid)
         {
-            string sql = "SELECT * FROM employee "
-                + "WHERE `E_ID` LIKE '%" + info + "%'"
-                + "OR `E_Name` LIKE '%" + info + "%'"
-                + "OR `E_Sex` LIKE '%" + info + "%'"
-                + "OR `E_Phone` LIKE '%" + info + "%'"
-                + "OR `E_Position` LIKE '%" + info + "%'";
-            OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
+            string cid = Case_C.GetCaseID(patientid);
+            string sql = "SELECT * FROM `hospital`.`test` WHERE `C_ID` = '" + cid + "'";
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcCommand odbcCommand= new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
             if (odbcDataReader.HasRows)
             {
-                List<Employee> list = Employee.getList(odbcDataReader);
+                List<Test> list = Test.getList(odbcDataReader);
                 odbcConnection.Close();
                 return list;
             }
