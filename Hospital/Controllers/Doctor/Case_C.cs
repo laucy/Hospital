@@ -11,19 +11,19 @@ namespace Hospital.Controllers
     public class Case_C
     {
         //增
-        public static bool Insert(int pid, int eid, string ccomplain, string cdiagnose,string cadvice)
+        public static bool Insert(int pid, int eid, string ccomplain, string cdiagnose,string cadvice,string hflag)
         {
-            string sql = "insert into `hospital`.`case` ( `P_ID`, `E_ID`,`C_Complain`, `C_Diagnose`, `C_Advice`) " +
+            string sql = "insert into `hospital`.`case` ( `P_ID`, `E_ID`,`C_Complain`, `C_Diagnose`, `C_Advice`,`H_Flag`) " +
                 "values('" + Convert.ToInt32(pid) + "', '" + Convert.ToInt32(eid) + "'" +
-                ",'" + ccomplain + "','" + cdiagnose + "','" + cadvice + "')";
+                ",'" + ccomplain + "','" + cdiagnose + "','" + cadvice + "','" + hflag + "')";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //根据病人ID查找病历ID
-        public static String GetCaseID(int pid)
+        public static string GetCaseID(int pid)
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "SELECT C_ID FROM `hospital`.`case` WHERE `P_ID`='" + pid+ "'";
+            string sql = "SELECT C_ID FROM `hospital`.`case` WHERE `P_ID`='"+pid+"'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader reader = odbcCommand.ExecuteReader();
             if (reader.Read())
