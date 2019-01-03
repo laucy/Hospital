@@ -26,9 +26,9 @@ namespace Hospital.Views.LLogin
             {
                 if (user.U_Role == "1")//管理员跳转的网页
                     Response.Redirect("/Views/Index/NurseIndex.aspx");
-                /*else if (employee.Position == 2)
-                    Response.Redirect("/Views/Index/inventory_manager_index.aspx");
-                else if (employee.Position == 3)
+                else if (user.U_Role == "6")//病人跳转的首页
+                    Response.Redirect("/Views/Index/PatientIndex.aspx");
+                /*else if (employee.Position == 3)
                     Response.Redirect("/Views/Index/salesclerk_index.aspx");*/
             }
             else

@@ -10,7 +10,7 @@ namespace Hospital.Controllers
 {
     public class Prescript_C
     {
-        //已知病人id查询检查项目和价格
+        //已知病人id查询药方信息
         public static List<Prescript> SelectPrescript(int patientid)
         {
             string cid = Case_C.GetCaseID(patientid);
