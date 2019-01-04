@@ -137,22 +137,12 @@
                        <asp:Button ID="Button2" runat="server" Text="查询" class="file-upload-browse btn btn-gradient-primary" OnClick="Button2_Click" />
                       </div>
                     </div>
-                    <div class="form-group" runat="server">
-                      <label for="text">病人姓名</label>
-                      <input type="text" class="form-control" id="name1"  runat="server" >
-                    </div>
-                    <div class="form-group">
-                      <label for="text">病人性别</label>
-                      <input type="text" class="form-control" id="sex1"  runat="server">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleSelectGender">年龄</label>
-                        <input type="text" class="form-control" id="age1"  runat="server">
+                          <div class="input-group col-xs-12">
+                              <input type="text" class="form-control file-upload-info" ID="name1" runat="server"  visible="false"/>
+                              <input type="text" class="form-control file-upload-info" ID="sex1" runat="server"  visible="false"/>
+                              <input type="text" class="form-control file-upload-info" ID="phone1" runat="server" visible="false"/>
+                              <input type="text" class="form-control file-upload-info" ID="age1" runat="server"   visible="false"/>
                       </div>
-                    <div class="form-group">
-                      <label>手机号</label>
-                      <input type="text"  class="form-control" id="phone1" runat="server">
-                    </div>
                       <p class="card-description">药方</p>
                        <div class="input-group col-xs-12">
                            <input type="text" class="form-control file-upload-info" id="drug_name" runat="server" placeholder="药品名称" />
@@ -208,7 +198,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                           <%for ( j = 0; i < prescripts.Count ; j++)
+                           <%for ( j = 0; j < prescripts.Count ; j++)
                                                             {%>
                         <tr>
                         <td><%=prescripts[j].D_ID %></td>
@@ -224,6 +214,7 @@
               </div>
             </div>
                           </div>
+                      <asp:Button ID="submit" runat="server" Text="提交" class="file-upload-browse btn btn-gradient-primary" OnClick="submit_Click" />
                   </form>
                 </div>
               </div>

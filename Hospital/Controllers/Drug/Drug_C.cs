@@ -44,5 +44,22 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return 0;
         }
+        //药品ID查药品单价
+        public static string GetDrugname(int did)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT D_Name FROM `hospital`.`drug` WHERE `D_ID`='" + did + "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader reader = odbcCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                string D_Name = reader[0].ToString();
+                odbcConnection.Close();
+                return D_Name;
+            }
+            odbcConnection.Close();
+            return null;
+        }
     }
 }

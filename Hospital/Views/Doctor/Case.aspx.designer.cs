@@ -49,15 +49,6 @@ namespace Hospital.Views.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputText sex1;
         
         /// <summary>
-        /// age1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText age1;
-        
-        /// <summary>
         /// phone1 控件。
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace Hospital.Views.Doctor {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText phone1;
+        
+        /// <summary>
+        /// age1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText age1;
         
         /// <summary>
         /// drug_name 控件。
@@ -119,5 +119,14 @@ namespace Hospital.Views.Doctor {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button add_drug;
+        
+        /// <summary>
+        /// submit 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit;
     }
 }
