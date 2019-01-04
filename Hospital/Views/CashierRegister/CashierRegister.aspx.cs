@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Hospital.Controllers;
-using Hospital.Controllers;
 using Hospital.Models;
 
 namespace Hospital.Views.CashierRegister

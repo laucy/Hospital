@@ -29,5 +29,15 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
+        public static bool AddTest(List<Test> tests)//order属性E_ID传递进来，其他不用
+        {
+            foreach (Test test in tests)
+            {
+                string sql = "insert into `hospital`.`test` " +
+                "values('" + test.IT_ID + "', '" + test.C_ID + "', '" + test.IT_Name + "','" + DateTime.Today.ToString("yyyy-MM-dd") + "','" + test.IT_Price + "')";
+                Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+            }
+            return true;
+        }
     }
 }

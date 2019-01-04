@@ -126,6 +126,7 @@
     <Content Include="Views\CashierRegister\CashierRegister.aspx" />
     <Content Include="Views\Doctor\Case.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
+    <Content Include="Views\Index\DoctorIndex.html" />
     <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
@@ -138,6 +139,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AssessmentItem\AssessmentItem_C.cs" />
     <Compile Include="Controllers\DB\DBManager.cs" />
     <Compile Include="Controllers\Department\Department_C.cs" />
     <Compile Include="Controllers\Doctor\Case_C.cs" />

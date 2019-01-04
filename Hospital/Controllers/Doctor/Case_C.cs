@@ -35,5 +35,11 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return null;
         }
+        //根据ID补充病历表
+        public static bool UpdateCase(int P_ID,string C_Complain,string C_Diagnose,string C_Advice,string H_Flag)
+        {
+            string sql = "update `hospital`.`case` set `C_Complain`='" + C_Complain + "',`C_Diagnose`='" + C_Diagnose + "',`C_Advice`='" + C_Advice + "',`H_Flag`='" + H_Flag + "' where `P_ID`='" + P_ID+ "'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
     }  
 }

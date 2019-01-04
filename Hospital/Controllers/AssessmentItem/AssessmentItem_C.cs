@@ -1,25 +1,27 @@
-﻿using System;
+﻿using Hospital.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.Odbc;
-using Hospital.Models;
+using System.Linq;
+using System.Web;
+
 namespace Hospital.Controllers
 {
-    public class Drug_C
+    public class AssessmentItem_C
     {
-        public static List<Drug> SelectFuzzy(string info)
+        //根据检查项名称查检查项内容
+        public static List<AssessmentItem> Select(string info)
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "SELECT * FROM drug WHERE `D_Name` LIKE '%" + info + "%'";
+            string sql = "SELECT * FROM assessment_item WHERE `IT_Name` LIKE '%" + info + "%'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
 
             if (odbcDataReader.HasRows)
             {
-                List<Drug> list = Drug.getList(odbcDataReader);
+                List<AssessmentItem> list = AssessmentItem.getList(odbcDataReader);
                 odbcConnection.Close();
                 return list;
             }
@@ -27,40 +29,39 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
-        //根据药品id查药品单价
-        public static float GetSellingPrice(int did)
+        //根据检查项id查检查项单价
+        public static float GetPrice(int did)
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "SELECT D_SellingPrice FROM `hospital`.`drug` WHERE `D_ID`='" + did + "'";
+            string sql = "SELECT IT_Price FROM `hospital`.`assessment_item` WHERE `IT_ID`='" + did + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader reader = odbcCommand.ExecuteReader();
             if (reader.Read())
             {
-                float D_SellingPrice = (float)reader[0];
+                float IT_Price = (float)reader[0];
                 odbcConnection.Close();
-                return D_SellingPrice;
+                return IT_Price;
             }
             odbcConnection.Close();
             return 0;
         }
-        //药品ID查药品名称
-        public static string GetDrugname(int did)
+        //检查项ID查检查项名称
+        public static string GetTextname(int did)
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "SELECT D_Name FROM `hospital`.`drug` WHERE `D_ID`='" + did + "'";
+            string sql = "SELECT IT_Name FROM `hospital`.`assessment_item` WHERE `IT_ID`='" + did + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader reader = odbcCommand.ExecuteReader();
             if (reader.Read())
             {
-                string D_Name = reader[0].ToString();
+                string IT_Name = reader[0].ToString();
                 odbcConnection.Close();
-                return D_Name;
+                return IT_Name;
             }
             odbcConnection.Close();
             return null;
         }
-
     }
 }

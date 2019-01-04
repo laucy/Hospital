@@ -214,8 +214,86 @@
               </div>
             </div>
                           </div>
-                      <asp:Button ID="submit" runat="server" Text="提交" class="file-upload-browse btn btn-gradient-primary" OnClick="submit_Click" />
-                  </form>
+                       <p class="card-description">检查单</p>
+                       <div class="input-group col-xs-12">
+                           <input type="text" class="form-control file-upload-info" id="Text_Name" runat="server" placeholder="检查项名称" />
+                           <asp:Button ID="Button_search_text"  class="file-upload-browse btn btn-gradient-primary" runat="server" Text="查找" Onclick="Button_search_text_Click"/>
+                            <input type="text" class="form-control file-upload-info" id="Text_ID" runat="server" placeholder="检查项目ID" />
+                            <asp:Button ID="Button_add_text" runat="server" Text="添加" class="file-upload-browse btn btn-gradient-primary" Onclick="Button_add_text_Click" />
+                       </div>
+                      <div class="row">
+ <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-description">检查项列表</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>检查项ID</th>
+                        <th>检查项名称</th>
+                        <th>检查项目仪器ID</th>
+                        <th>检查项目单价</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%for ( k = 0; k < assessmentItems.Count ; k++)
+                                                            {%>
+                               <tr>
+                        <td><%=assessmentItems[k].IT_ID %></td>
+                        <td><%=assessmentItems[k].IT_Name %></td>
+                        <td><%=assessmentItems[k].I_ID %></td>
+                        <td><%=assessmentItems[k].IT_Price%></td>
+                                   </tr>
+                                   <%} %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-description">检查单</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>检查项ID</th>
+                        <th>检查项名称</th>
+                        <th>检查项价格</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                           <%for ( l = 0; l< tests.Count ; l++)
+                                                            {%>
+                        <tr>
+                        <td><%=tests[l].IT_ID %></td>
+                        <td><%=tests[l].IT_Name %></td>
+                        <td><%=tests[l].IT_Price %></td>                       
+                        </tr>
+                        <%} %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+                          </div>
+                       <div class="form-group">
+                      <label for="exampleTextarea1">病情主诉</label>
+                      <textarea class="form-control" id="Case_Complain" rows="4" runat="server"></textarea>
+                      </div>
+                      <div class="form-group">
+                      <label for="exampleTextarea1">诊断结果</label>
+                      <textarea class="form-control" id="Case_Diagnose" rows="4" runat="server"></textarea>
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleTextarea1">医嘱</label>
+                      <textarea class="form-control" id="Case_Advice" rows="4" runat="server"></textarea>
+                          </div>
+                    <div style="text-align:center" >                      
+                      <asp:RadioButton ID="hospitalization" runat="server" Text="是否住院" class="input-group col-xs-6" gravity="center_vertical" />
+                      <asp:Button ID="submit" runat="server" Text="提交" class="file-upload-browse btn btn-gradient-primary" OnClick="submit_Click"/>
+                  </div>
+                        </form>
                 </div>
               </div>
             </div>
