@@ -125,8 +125,9 @@
     <Content Include="vendors\js\vendor.bundle.base.js" />
     <Content Include="Views\CashierRegister\CashierRegister.aspx" />
     <Content Include="Views\Doctor\Case.aspx" />
+    <Content Include="Views\DrugAdministrator\RegisteredDrugs.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
-    <Content Include="Views\Index\DoctorIndex.html" />
+    <Content Include="Views\Index\DoctorIndex.aspx" />
     <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
@@ -181,12 +182,26 @@
     <Compile Include="Views\Doctor\Case.aspx.designer.cs">
       <DependentUpon>Case.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\DrugAdministrator\RegisteredDrugs.aspx.cs">
+      <DependentUpon>RegisteredDrugs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DrugAdministrator\RegisteredDrugs.aspx.designer.cs">
+      <DependentUpon>RegisteredDrugs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Index\CashierIndex.aspx.cs">
       <DependentUpon>CashierIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Index\CashierIndex.aspx.designer.cs">
       <DependentUpon>CashierIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Index\DoctorIndex.aspx.cs">
+      <DependentUpon>DoctorIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Index\DoctorIndex.aspx.designer.cs">
+      <DependentUpon>DoctorIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index\NurseIndex.aspx.cs">
       <DependentUpon>NurseIndex.aspx</DependentUpon>
