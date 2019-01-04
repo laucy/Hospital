@@ -143,6 +143,7 @@
     <Compile Include="Controllers\Doctor\Case_C.cs" />
     <Compile Include="Controllers\Drug\Drug_C.cs" />
     <Compile Include="Controllers\Employee\Employee_C.cs" />
+    <Compile Include="Controllers\Hospitalization\Hospitalization_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
     <Compile Include="Controllers\Prescript_C.cs" />
     <Compile Include="Controllers\Test\Test_C.cs" />

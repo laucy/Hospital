@@ -34,7 +34,8 @@ namespace Hospital.Views.CashierRegister
                  List<Employee> employees = Employee_C.SelectFuzzy(doctor.SelectedValue);
                  int doctorid = employees[0].E_ID;
                  bool resultcase = Case_C.Insert(Convert.ToInt32(patientid), doctorid, null, null, null,null);                
-                 Response.Write("<script language=javascript>window.alert('挂号成功,您的编号为:"+ patientid + "');</script>");              
+                 Response.Write("<script language=javascript>window.alert('挂号成功,您的编号为:"+ patientid + "');</script>");
+                 bool resultuser = User_C.Insertpid(patientid);
                  pname.Value = null;
                  psex.Value = "男";
                  ppage.Value = null;
