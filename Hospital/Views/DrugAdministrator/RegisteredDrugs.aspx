@@ -1,13 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PharmacistIndex.aspx.cs" Inherits="Hospital.Views.Pharmacist.PharmacistIndex" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisteredDrugs.aspx.cs" Inherits="Hospital.Views.DrugAdministrator.RegisteredDrugs" %>
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>医院管理系统--药品管理员</title>
+    <title>医院管理系统--医生</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
@@ -43,12 +43,12 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">药品管理员，您好！</p>
+                                <p class="mb-1 text-black">医生，您好！</p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../LLogin/LLogin.aspx">
+                            <a class="dropdown-item" href="#">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                                 退出
                             </a>
@@ -100,39 +100,74 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">药品入库</span>
+                            <span class="menu-title">查看病人信息</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/icons/mdi.html">
-                            <span class="menu-title">药品出库</span>
+                            <span class="menu-title">填写病历</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
                     </li>
                 </ul>
             </nav>
             <!-- partial -->
-            <div class="main-panel">
+           <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="row">
-                        <div class="col-12">
-
+                    <h3 class="page-title">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                            <i class="mdi mdi-home"></i>
+                        </span>
+                        关心病人，服务病人！
+                    </h3>
+                    <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">登记药品</h4>
+                                <form class="forms-sample" runat="server">
+                                    <div class="form-group">
+                                        <label>药品ID名称</label>
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" id="drug_ID" runat="server" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>药品名称</label>
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" id="drug_Name" runat="server" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>药品规格</label>
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" id="drug_Standard" runat="server" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>药品进价</label>
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" id="drug_PurchasingPrice" runat="server" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>药品售价</label>
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" id="drug_SellingPrice" runat="server" />
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center" runat="server">
+                                        <asp:Button ID="register" runat="server" Text="登记" OnClick="register_Click" class="btn btn-gradient-primary mr-2"/>
+                                        <asp:Button ID="cancel" runat="server" Text="取消" OnClick="cancel_Click" class="btn btn-light mr-2"/>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                                <i class="mdi mdi-home"></i>
-                            </span>
-                            关心病人，服务病人！
-                        </h3>
-                    </div>
-                    <div class="row">
-                    </div>
                 </div>
-                <!-- content-wrapper ends -->
+
             </div>
+
             <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->

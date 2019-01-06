@@ -51,7 +51,7 @@
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="../LLogin/LLogin.aspx">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                                 Signout
                             </a>
@@ -96,19 +96,19 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="../Index/CashierIndex.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <a class="nav-link" href="CashierRegister.aspx">
                             <span class="menu-title">挂号</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
+                        <a class="nav-link" href="../Payment/Payment.aspx">
                             <span class="menu-title">缴费</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
@@ -183,7 +183,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">科室</label>
                                                     <div class="col-sm-9">                                                                                                              
-                                                        <asp:DropDownList runat="server" class="form-control" ID="department" OnSelectedIndexChanged="department_SelectedIndexChanged"></asp:DropDownList>                                               
+                                                        <asp:DropDownList runat="server" class="form-control" ID="department" OnSelectedIndexChanged="department_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>                                               
                                                     </div>
                                                 </div>
                                             </div>

@@ -27,5 +27,12 @@ namespace Hospital.Controllers
                 sqlConnection1.Close();
             return null;
         }
+        //增加病人id和密码
+        public static bool Insertpid(string patientid)
+        {
+            string sql = "insert into `hospital`.`user` ( `U_Name`, `U_Password`,`U_Role`) " +
+                "values('" + Convert.ToInt32(patientid) + "',666666,6)";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
     }
 }

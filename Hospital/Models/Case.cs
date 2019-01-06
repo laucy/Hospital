@@ -14,11 +14,13 @@ namespace Hospital.Models
         public string C_Complain { get; set; }
         public string C_Diagnose { get; set; }
         public string C_Advice { get; set; }
+        public string H_Flag { get; set; }
+
 
         public Case() { }
 
         public Case(int cid, int pid, int eid,string ccomplain, string cdiagnose,
-             string cadvice)
+             string cadvice,string hflag)
         {
             C_ID = cid;
             P_ID = pid;
@@ -26,6 +28,7 @@ namespace Hospital.Models
             C_Complain = ccomplain;
             C_Diagnose = cdiagnose;
             C_Advice = cadvice;
+            H_Flag = hflag;
         }
 
         public static List<Case> getList(OdbcDataReader reader)
@@ -41,6 +44,7 @@ namespace Hospital.Models
                 cases.C_Complain = reader.GetString(3);
                 cases.C_Diagnose = reader.GetString(4);
                 cases.C_Advice = reader.GetString(5);
+                cases.H_Flag = reader.GetString(6);
                 list.Add(cases);
             }
             return list;

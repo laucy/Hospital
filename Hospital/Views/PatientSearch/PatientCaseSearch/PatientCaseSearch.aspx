@@ -1,28 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PharmacistIndex.aspx.cs" Inherits="Hospital.Views.Pharmacist.PharmacistIndex" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PatientCaseSearch.aspx.cs" Inherits="Hospital.Views.PatientSearch.PatientCaseSearch.PatientCaseSearch" %>
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>医院管理系统--药品管理员</title>
+    <title>医院管理系统--用户病历查询</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../../vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../../css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link rel="shortcut icon" href="../../../images/favicon.png" />
 </head>
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo" /> 医院管理系统</a>
+                <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../images/hlogo.jpg" alt="logo" />
+                    医院管理系统</a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <div class="search-field d-none d-md-block">
@@ -39,18 +40,18 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../../images/faces/face1.jpg" alt="image">
+                                <img src="../../../images/faces/face1.jpg" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">药品管理员，您好！</p>
+                                <p runat="server" class="mb-1 text-black">尊敬的<%=patients[0].P_Name%><%=sex%>，您好！</p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../LLogin/LLogin.aspx">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i>
-                                退出
+                                Signout
                             </a>
                         </div>
                     </li>
@@ -93,20 +94,20 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="DoctorIndex.html">
+                        <a class="nav-link" href="../../Index/PatientIndex.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">药品入库</span>
+                        <a class="nav-link" href="PatientCaseSearch.aspx">
+                            <span class="menu-title">病历查询</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
-                            <span class="menu-title">药品出库</span>
+                        <a class="nav-link" href="../PatientBillSearch/PatientBillSearch.aspx">
+                            <span class="menu-title">账单查询</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
                     </li>
@@ -117,7 +118,6 @@
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-12">
-
                         </div>
                     </div>
                     <div class="page-header">
@@ -125,10 +125,51 @@
                             <span class="page-title-icon bg-gradient-primary text-white mr-2">
                                 <i class="mdi mdi-home"></i>
                             </span>
-                            关心病人，服务病人！
+                            祝您早日康复！
                         </h3>
                     </div>
                     <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">病历信息</h4>
+                                    <p class="card-description">
+                                        Medical record information
+                                    </p>
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <label for="exampleInputName1">姓名</label>
+                                            <input type="text" class="form-control" runat="server" id="pcname" disabled="disabled">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputage1">年龄</label>
+                                            <input type="text" class="form-control" runat="server" id="pcage" disabled="disabled">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender1">性别</label>
+                                            <input type="text" class="form-control" runat="server" id="pcgender" disabled="disabled" />                     
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputDoctor1">主治医生</label>
+                                            <input type="text" class="form-control" runat="server" id="pcdoctor" disabled="disabled">
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label for="exampleInputComplain1">病情描述</label>
+                                            <textarea class="form-control" runat="server" disabled="disabled" id="Complain1" rows="4"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputDiagnose1">诊断结果</label>
+                                            <textarea class="form-control" runat="server" disabled="disabled" id="Diagnose1" rows="4"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleAdvice1">医嘱信息</label>
+                                            <textarea class="form-control" runat="server" disabled="disabled" id="Advice1" rows="4"></textarea>
+                                        </div>              
+                                        <button class="btn btn-gradient-primary mr-2">返回</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
@@ -139,17 +180,20 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../vendors/js/vendor.bundle.base.js"></script>
-    <script src="../../vendors/js/vendor.bundle.addons.js"></script>
+    <script src="../../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../../vendors/js/vendor.bundle.addons.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-    <script src="../../js/off-canvas.js"></script>
-    <script src="../../js/misc.js"></script>
+    <script src="../../../js/off-canvas.js"></script>
+    <script src="../../../js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="../../js/dashboard.js"></script>
+    <script src="../../../js/dashboard.js"></script>
     <!-- End custom js for this page-->
 </body>
 </html>
+
+
+

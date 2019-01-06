@@ -50,5 +50,24 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
+        //根据科室名字查找该科室所有医生名字
+        public static List<Employee> SelectEmployee(string dename)
+        {
+            string deid = Department_C.DE_seekid(dename);
+            string sql = "SELECT * FROM `hospital`. `employee` WHERE `DE_ID`='" + deid + "' and `E_Position`='3'";
+            OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (odbcDataReader.HasRows)
+            {
+                List<Employee> list = Employee.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            else
+                odbcConnection.Close();
+            return null;
+        }
     }
 }

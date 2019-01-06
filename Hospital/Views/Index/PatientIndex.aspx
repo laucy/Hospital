@@ -7,7 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>医院管理系统--首页</title>
+  <title>医院管理系统--用户首页</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
@@ -22,7 +22,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo"/> 医院管理系统</a>
+        <a class="navbar-brand brand-logo" href="PatientIndex.aspx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo"/> 医院管理系统</a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field d-none d-md-block">
@@ -43,12 +43,12 @@
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">尊敬的用户，您好！</p>
+                <p runat="server" class="mb-1 text-black">尊敬的<%=patients[0].P_Name%><%=sex%>，您好！</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="../LLogin/LLogin.aspx">
                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                 Signout
               </a>
@@ -93,19 +93,19 @@
      <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">      
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="PatientIndex.aspx">
               <span class="menu-title">首页</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" href="../PatientSearch/PatientCaseSearch/PatientCaseSearch.aspx" >
               <span class="menu-title">病历查询</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
               <span class="menu-title">账单查询</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
