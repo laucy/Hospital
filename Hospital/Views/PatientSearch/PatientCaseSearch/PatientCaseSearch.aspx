@@ -44,12 +44,12 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">尊敬的用户，您好！</p>
+                                <p runat="server" class="mb-1 text-black">尊敬的<%=patients[0].P_Name%><%=sex%>，您好！</p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="../LLogin/LLogin.aspx">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                                 Signout
                             </a>
@@ -139,34 +139,31 @@
                                     <form class="forms-sample">
                                         <div class="form-group">
                                             <label for="exampleInputName1">姓名</label>
-                                            <input type="text" class="form-control" id="pcname">
+                                            <input type="text" class="form-control" runat="server" id="pcname" disabled="disabled">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputage1">年龄</label>
-                                            <input type="text" class="form-control" id="pcage">
+                                            <input type="text" class="form-control" runat="server" id="pcage" disabled="disabled">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleSelectGender1">性别</label>
-                                            <select class="form-control" id="pcsex">
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                            </select>
+                                            <input type="text" class="form-control" runat="server" id="pcgender" disabled="disabled" />                     
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputDoctor1">主治医生</label>
-                                            <input type="text" class="form-control" id="pcdoctor" >
+                                            <input type="text" class="form-control" runat="server" id="pcdoctor" disabled="disabled">
                                         </div>                                        
                                         <div class="form-group">
                                             <label for="exampleInputComplain1">病情描述</label>
-                                            <textarea class="form-control" id="Complain1" rows="4"></textarea>
+                                            <textarea class="form-control" runat="server" disabled="disabled" id="Complain1" rows="4"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputDiagnose1">诊断结果</label>
-                                            <textarea class="form-control" id="Diagnose1" rows="4"></textarea>
+                                            <textarea class="form-control" runat="server" disabled="disabled" id="Diagnose1" rows="4"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleAdvice1">医嘱信息</label>
-                                            <textarea class="form-control" id="Advice1" rows="4"></textarea>
+                                            <textarea class="form-control" runat="server" disabled="disabled" id="Advice1" rows="4"></textarea>
                                         </div>              
                                         <button class="btn btn-gradient-primary mr-2">返回</button>
                                     </form>
