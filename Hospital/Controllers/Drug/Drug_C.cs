@@ -44,6 +44,45 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return 0;
         }
+        //药品ID查药品名称
+        public static string GetDrugname(int did)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT D_Name FROM `hospital`.`drug` WHERE `D_ID`='" + did + "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader reader = odbcCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                string D_Name = reader[0].ToString();
+                odbcConnection.Close();
+                return D_Name;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+        //判断药品名称是否存在
+        public static bool ExistDrug(int did)
+        {
+            string sql = "select * from `hospital`.`drug` where D_ID='" + did + "'";
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (!odbcDataReader.HasRows)//商品ID不存在 返回空
+            {
+                return false;
+            }
+            else
+                return true;
 
+        }
+        public static bool Insert(int did, string dname,string dstandard, float dpurchasingprice, float dsellingprice)
+        {
+            string sql = "insert into `hospital`.`drug` ( `D_ID`, `D_Name`, `D_Standard`,`D_PurchasingPrice`, `D_SellingPrice`,`D_Store`) " +
+                "values('" + did + "', '" + dname + "'" +
+                ",'" + dstandard + "','" + dpurchasingprice + "','" + dsellingprice + "',0)";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
     }
 }
