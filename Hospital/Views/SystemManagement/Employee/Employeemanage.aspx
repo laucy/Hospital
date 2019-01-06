@@ -1,27 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Hospital.Views.Login.Admin1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Employeemanage.aspx.cs" Inherits="Hospital.Views.SystemManagement.Employee.Employeemanage" %>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>医院管理系统--系统管理员</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../../vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="../../../images/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="PatientIndex.aspx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo"/> 医院管理系统</a>
+        <a class="navbar-brand brand-logo" href="PatientIndex.aspx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../../images/hlogo.jpg" alt="logo"/> 医院管理系统</a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field d-none d-md-block">
@@ -38,7 +39,7 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="../../images/faces/face1.jpg" alt="image">
+                <img src="../../../images/faces/face1.jpg" alt="image">
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
@@ -145,12 +146,12 @@
                 <div class="card-body">              
                   <div class="row mt-3">
                     <div class="col-6 pr-1">
-                      <img src="../../images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
+                      <img src="../../../images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../../images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                     <div class="col-6 pl-1">
-                      <img src="../../images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
+                      <img src="../../../images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../../images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                   </div>               
                 </div>
@@ -167,17 +168,17 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../vendors/js/vendor.bundle.addons.js"></script>
+  <script src="../../../vendors/js/vendor.bundle.base.js"></script>
+  <script src="../../../vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/misc.js"></script>
+  <script src="../../../js/off-canvas.js"></script>
+  <script src="../../../js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="../../js/dashboard.js"></script>
+  <script src="../../../js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
 

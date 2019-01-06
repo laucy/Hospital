@@ -15,12 +15,16 @@ namespace Hospital.Views.Index
         public string sex;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string patientid =Session["uid"].ToString();
-            patients = Patient_C.GetPatientinformation(patientid);
-            if (patients[0].P_Sex == "男")
-                sex = "先生";
-            else
-                sex = "女士";
+            string patientid=null;
+            if (patientid != null) {
+                patientid = Session["uid"].ToString();
+                patients = Patient_C.GetPatientinformation(patientid);
+                if (patients[0].P_Sex == "男")
+                    sex = "先生";
+                else
+                    sex = "女士";
+            }
+            
         }
     }
 }
