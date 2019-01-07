@@ -5,13 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Hospital.Views.Nurse
+namespace Hospital.Views.SystemManagement.Sickbed
 {
-    public partial class Nurse_AdviceManage : System.Web.UI.Page
+    public partial class SickbedManage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            show_depart.InnerHtml=Session["dep"].ToString();
 
         }
     }

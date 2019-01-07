@@ -43,12 +43,12 @@
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">尊敬的用户，您好！</p>
+                <p runat="server" class="mb-1 text-black">尊敬的<%=patients[0].P_Name%><%=sex%>，您好！</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="../LLogin/LLogin.aspx">
                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                 Signout
               </a>
@@ -123,7 +123,8 @@
               祝您早日康复！
             </h3>
           </div>
-          <div class="row">          
+          <form runat="server">
+           <div class="row">          
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -133,69 +134,46 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th>
+                        <th> 
                           药品名称
                         </th>
                         <th>
-                          单价
+                          单价/元
                         </th>
                         <th>
                           数量
-                        </th>
+                        </th>                    
                         <th>
-                          规格
-                        </th>
-                        <th>
-                          金额
+                          金额/元
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-1.png" alt="image"/>
-                        </td>
-                        <td>
-                          Herman Beck
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $ 77.99
-                        </td>
-                        <td>
-                          May 15, 2015
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-2.png" alt="image"/>
-                        </td>
-                        <td>
-                          Messsy Adam
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $245.30
-                        </td>
-                        <td>
-                          July 1, 2015
-                        </td>
-                      </tr>
+                    <%if (prescripts != null)
+                        { %>
+                      <%for (int i = 0; i < prescripts.Count; i++)
+                          { %>
+                        <tr>
+                         <td><%=prescripts[i].D_Name %></td>
+                         <td><%=sellingprice[i] %></td>
+                         <td><%=prescripts[i].D_Number %></td>   
+                         <td><%=prescripts[i].D_Totalprice %></td> 
+                       </tr> 
+                      <%} %>
+                    <%} %>
                     </tbody>
                   </table>
+                   <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <label>总计：</label> 
+                  <asp:Label ID="sum1" runat="server"></asp:Label>
                 </div>
               </div>
             </div>            
           </div>
-          <div class="row">          
+           <div class="row">          
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body"> 
@@ -210,58 +188,46 @@
                           检查项目
                         </th>
                         <th>
-                          单价
+                          单价/元
                         </th>
                         <th>
                           数量
                         </th>
+                         <th>
+                          时间
+                        </th>
                         <th>
-                          金额
+                          金额/元
                         </th>                       
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-1.png" alt="image"/>
-                        </td>
-                        <td>
-                          Herman Beck
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $ 77.99
-                        </td>
-                       
-                      </tr>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-2.png" alt="image"/>
-                        </td>
-                        <td>
-                          Messsy Adam
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $245.30
-                        </td>
-                        
-                      </tr>
+                    <%if (tests != null)
+                        { %>
+                      <%for (int i = 0; i < tests.Count; i++)
+                          { %>
+                        <tr>
+                         <td><%=tests[i].IT_Name %>                  </td>
+                         <td><%=tests[i].IT_Price %></td>
+                         <td> 1 </td>
+                         <td><%=tests[i].T_Date.ToShortDateString() %></td>    
+                         <td><%=tests[i].IT_Price %></td>                      
+                       </tr> 
+                      <%} %>
+                    <%} %>
                     </tbody>
                   </table>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <label>总计：</label> 
+                  <asp:Label ID="sum2" runat="server"></asp:Label>
                 </div>
               </div>
             </div>            
           </div>
-          <div class="row">          
+           <div class="row">          
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -279,61 +245,52 @@
                           出院时间
                         </th>
                         <th>
-                          天数
+                          天数/天
                         </th>
                         <th>
-                          单价
+                          单价/元
                         </th>
                         <th>
-                          金额
+                          金额/元
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-1.png" alt="image"/>
-                        </td>
-                        <td>
-                          Herman Beck
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $ 77.99
-                        </td>
-                        <td>
-                          May 15, 2015
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="py-1">
-                          <img src="../../images/faces-clipart/pic-2.png" alt="image"/>
-                        </td>
-                        <td>
-                          Messsy Adam
-                        </td>
-                        <td>
-                          <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </td>
-                        <td>
-                          $245.30
-                        </td>
-                        <td>
-                          July 1, 2015
-                        </td>
-                      </tr>
+                    <%if (hospitalizations != null)
+                        { %>
+                      <%for (int i = 0; i < hospitalizations.Count; i++)
+                          { %>
+                        <tr>
+                         <td><%=hospitalizations[i].H_In.ToShortDateString() %></td>
+                         <td><%=hospitalizations[i].H_Out.ToShortDateString() %></td>
+                         <td><%=(hospitalizations[i].H_Out-hospitalizations[i].H_In).Days %></td>
+                         <td>50</td>    
+                         <td><%=hospitalizations[i].H_Sum %></td>                      
+                       </tr> 
+                      <%} %>
+                    <%} %>
                     </tbody>
                   </table>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <label>总计：</label> 
+                  <asp:Label ID="sum3" runat="server"></asp:Label>
+                  <br />
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  <asp:TextBox BorderStyle="None" runat="server" Text=""></asp:TextBox>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <label>共计：</label> 
+                  <asp:Label ID="sum" runat="server"></asp:Label>
                 </div>
               </div>
             </div>            
-          </div>        
+          </div> 
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             <asp:Button runat="server" ID="back" CssClass="btn btn-gradient-primary mr-2" OnClick="back_Click" Text="返回" />
+            </form>       
         </div>
         <!-- content-wrapper ends -->       
       </div>

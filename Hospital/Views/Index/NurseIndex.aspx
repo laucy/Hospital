@@ -56,7 +56,7 @@
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="../LLogin/LLogin.aspx">
                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                 Signout
               </a>
@@ -107,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/Views/Index/NurseIndex.aspx" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">分配病床</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>

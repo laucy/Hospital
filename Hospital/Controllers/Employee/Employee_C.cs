@@ -54,7 +54,7 @@ namespace Hospital.Controllers
         public static List<Employee> SelectEmployee(string dename)
         {
             string deid = Department_C.DE_seekid(dename);
-            string sql = "SELECT * FROM `hospital`. `employee` WHERE `DE_ID`='" + deid + "'";
+            string sql = "SELECT * FROM `hospital`. `employee` WHERE `DE_ID`='" + deid + "' and `E_Position`='3'";
             OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
             odbcConnection.Open();
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);

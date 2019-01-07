@@ -35,6 +35,23 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return null;
         }
+        //根据病人id获取病历信息
+        public static List<Case> GetCaseinformation(string pid)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "select * from `case` where P_ID='" + Convert.ToInt32(pid) + "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+            if (odbcDataReader.HasRows)
+            {
+                List<Case> list = Case.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+        }
         //根据ID补充病历表
         public static bool UpdateCase(int P_ID,string C_Complain,string C_Diagnose,string C_Advice,string H_Flag)
         {
