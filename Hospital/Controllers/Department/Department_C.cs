@@ -45,7 +45,6 @@ namespace Hospital.Controllers
             }
             odbcConnection.Close();
             return null;
-
         }
         //根据科室名称获取科室id
         public static string DE_seekid(string dename)

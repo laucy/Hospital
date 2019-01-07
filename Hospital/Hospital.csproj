@@ -125,6 +125,8 @@
     <Content Include="vendors\js\vendor.bundle.base.js" />
     <Content Include="Views\CashierRegister\CashierRegister.aspx" />
     <Content Include="Views\Doctor\Case.aspx" />
+    <Content Include="Views\DrugAdministrator\DrugIn.aspx" />
+    <Content Include="Views\DrugAdministrator\DrugOut.aspx" />
     <Content Include="Views\DrugAdministrator\RegisteredDrugs.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
     <Content Include="Views\Index\DoctorIndex.aspx" />
@@ -181,6 +183,20 @@
     </Compile>
     <Compile Include="Views\Doctor\Case.aspx.designer.cs">
       <DependentUpon>Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DrugAdministrator\DrugIn.aspx.cs">
+      <DependentUpon>DrugIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DrugAdministrator\DrugIn.aspx.designer.cs">
+      <DependentUpon>DrugIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DrugAdministrator\DrugOut.aspx.cs">
+      <DependentUpon>DrugOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\DrugAdministrator\DrugOut.aspx.designer.cs">
+      <DependentUpon>DrugOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\DrugAdministrator\RegisteredDrugs.aspx.cs">
       <DependentUpon>RegisteredDrugs.aspx</DependentUpon>

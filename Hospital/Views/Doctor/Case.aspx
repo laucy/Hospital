@@ -135,7 +135,6 @@
                                             <input type="file" name="img[]" class="file-upload-default">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info" id="patient_ID" runat="server" />
-                                                <asp:Button ID="Button2" runat="server" Text="查询" class="file-upload-browse btn btn-gradient-primary" OnClick="Button2_Click" />
                                             </div>
                                         </div>
                                         <div class="input-group col-xs-12">
