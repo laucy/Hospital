@@ -11,6 +11,7 @@ namespace Hospital.Views.Nurse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            show_depart.InnerHtml=Session["dep"].ToString();
 
         }
     }

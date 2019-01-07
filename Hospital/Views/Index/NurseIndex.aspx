@@ -107,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="/Views/Index/NurseIndex.aspx" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">分配病床</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
