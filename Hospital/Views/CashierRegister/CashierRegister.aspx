@@ -24,7 +24,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo" />
+                <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../../images/hlogo.jpg" alt="logo" />
                     医院管理系统</a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -191,7 +191,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">医生</label>
                                                     <div class="col-sm-9">
-                                                       <asp:DropDownList runat="server" class="form-control" ID="doctor"></asp:DropDownList>                                               
+                                                       <asp:DropDownList runat="server" class="form-control" ID="doctor" AutoPostBack="True"></asp:DropDownList>                                               
 
                                                     </div>
                                                 </div>

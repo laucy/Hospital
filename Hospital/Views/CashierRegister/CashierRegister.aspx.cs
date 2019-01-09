@@ -21,7 +21,7 @@ namespace Hospital.Views.CashierRegister
                 this.department.DataSource = de;
                 this.department.DataTextField = "DE_Name";
                 this.department.DataBind();
-            }         
+            }
         }
 
        protected void cashbutton_Click(object sender, EventArgs e)
@@ -56,10 +56,11 @@ namespace Hospital.Views.CashierRegister
 
         protected void department_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Employee> employees2 = Employee_C.SelectEmployee(department.Text);            
+            doctor.Items.Clear();
+            List<Employee> employees2 = Employee_C.SelectEmployee(department.Text);
             this.doctor.DataSource = employees2;
             this.doctor.DataTextField = "E_Name";
-            this.doctor.DataBind();
+            this.doctor.DataBind();                     
         }
     }
 }

@@ -138,7 +138,8 @@
     <Content Include="Views\PatientSearch\PatientBillSearch\PatientBillSearch.aspx" />
     <Content Include="Views\PatientSearch\PatientCaseSearch\PatientCaseSearch.aspx" />
     <Content Include="Views\Payment\Payment.aspx" />
-    <Content Include="Views\SystemManagement\Department\Department.aspx" />
+    <Content Include="Views\SystemManagement\DepartmentManage\DepartmentDelete.aspx" />
+    <Content Include="Views\SystemManagement\DepartmentManage\DepartmentManage.aspx" />
     <Content Include="Views\SystemManagement\Employee\Employeemanage.aspx" />
     <Content Include="Views\SystemManagement\Instrument\Instrumentmanage.aspx" />
     <Content Include="Views\SystemManagement\Sickbed\SickbedManage.aspx" />
@@ -154,6 +155,7 @@
     <Compile Include="Controllers\Hospitalization\Hospitalization_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
     <Compile Include="Controllers\Prescript_C.cs" />
+    <Compile Include="Controllers\Sickbed\Sickbed_C.cs" />
     <Compile Include="Controllers\Test\Test_C.cs" />
     <Compile Include="Controllers\Tool\ExecuteSQL.cs" />
     <Compile Include="Controllers\User_C.cs" />
@@ -271,12 +273,19 @@
     <Compile Include="Views\Payment\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SystemManagement\Department\Department.aspx.cs">
-      <DependentUpon>Department.aspx</DependentUpon>
+    <Compile Include="Views\SystemManagement\DepartmentManage\DepartmentDelete.aspx.cs">
+      <DependentUpon>DepartmentDelete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SystemManagement\Department\Department.aspx.designer.cs">
-      <DependentUpon>Department.aspx</DependentUpon>
+    <Compile Include="Views\SystemManagement\DepartmentManage\DepartmentDelete.aspx.designer.cs">
+      <DependentUpon>DepartmentDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemManagement\DepartmentManage\DepartmentManage.aspx.cs">
+      <DependentUpon>DepartmentManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagement\DepartmentManage\DepartmentManage.aspx.designer.cs">
+      <DependentUpon>DepartmentManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SystemManagement\Employee\Employeemanage.aspx.cs">
       <DependentUpon>Employeemanage.aspx</DependentUpon>

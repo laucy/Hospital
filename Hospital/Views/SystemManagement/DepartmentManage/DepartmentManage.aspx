@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SickbedManage.aspx.cs" Inherits="Hospital.Views.SystemManagement.Sickbed.SickbedManage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentManage.aspx.cs" Inherits="Hospital.Views.SystemManagement.DepartmentManage.DepartmentManage" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -144,13 +144,13 @@
                     <div class="col-lg-12 grid-margin stretch-card">                       
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">病床信息表</h4>
+                                <h4 class="card-title">科室信息表</h4>
                                 <p class="card-description">
                                     Departmental Information Table
                                 </p>
-                                <label>科室</label>
+                                <label>科室编号</label>
                                 <input id="deidtext"  runat="server"/>
-                                 <label>病房号</label>
+                                 <label>科室名称</label>
                                 <input id="denametext"  runat="server"/>
                                 <asp:Button ID="search"  runat="server" Text="查询" CssClass="btn btn-gradient-primary mr-2" OnClick="search_Click"/>
                                 <asp:Button ID="insert" runat="server" Text="插入" CssClass="btn btn-gradient-primary mr-2"  OnClick="insert_Click" />
@@ -158,26 +158,20 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>病床编号
+                                            <th>科室编号
                                             </th>
-                                            <th>病房号
-                                            </th>
-                                            <th>是否空余
-                                            </th>
-                                            <th>所在科室
+                                            <th>科室名称
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%if (sickbedinfo != null)
+                                        <%if (departmentinfo != null)
                                             { %>
-                                        <%for (int i = 0; i < sickbedinfo.Count; i++)
+                                        <%for (int i = 0; i < departmentinfo.Count; i++)
                                             { %>
                                         <tr>
-                                            <td><%=sickbedinfo[i].S_ID %></td>
-                                            <td><%=sickbedinfo[i].R_ID %></td>
-                                            <td><%=sickbedinfo[i]. %></td>
-                                            <td><%=sickbedinfo[i]. %></td>
+                                            <td><p><a href="DepartmentDelete.aspx?deid=<%=departmentinfo[i].DE_ID %>"><%=departmentinfo[i].DE_ID %></a></p></td>
+                                            <td><p><a href="DepartmentDelete.aspx?deid=<%=departmentinfo[i].DE_ID %>"><%=departmentinfo[i].DE_Name %></a></p></td>
                                         </tr>
                                         <%} %>
                                         <%} %>

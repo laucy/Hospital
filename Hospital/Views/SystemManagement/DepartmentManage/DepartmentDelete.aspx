@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SickbedManage.aspx.cs" Inherits="Hospital.Views.SystemManagement.Sickbed.SickbedManage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentDelete.aspx.cs" Inherits="Hospital.Views.SystemManagement.DepartmentManage.DepartmentDelete" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -127,7 +127,6 @@
             </nav>
             <!-- partial -->
             <div class="main-panel">
-               <form runat="server">
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-12">
@@ -141,58 +140,35 @@
                             关心病人，服务病人！
                         </h3>
                     </div>
-                    <div class="col-lg-12 grid-margin stretch-card">                       
+                    <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">病床信息表</h4>
+                                <h4 class="card-title">科室详情</h4>
                                 <p class="card-description">
-                                    Departmental Information Table
+                                    Departmental Information detail
                                 </p>
-                                <label>科室</label>
-                                <input id="deidtext"  runat="server"/>
-                                 <label>病房号</label>
-                                <input id="denametext"  runat="server"/>
-                                <asp:Button ID="search"  runat="server" Text="查询" CssClass="btn btn-gradient-primary mr-2" OnClick="search_Click"/>
-                                <asp:Button ID="insert" runat="server" Text="插入" CssClass="btn btn-gradient-primary mr-2"  OnClick="insert_Click" />
-                                <br /> <br /> <br /> <br />
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>病床编号
-                                            </th>
-                                            <th>病房号
-                                            </th>
-                                            <th>是否空余
-                                            </th>
-                                            <th>所在科室
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%if (sickbedinfo != null)
-                                            { %>
-                                        <%for (int i = 0; i < sickbedinfo.Count; i++)
-                                            { %>
-                                        <tr>
-                                            <td><%=sickbedinfo[i].S_ID %></td>
-                                            <td><%=sickbedinfo[i].R_ID %></td>
-                                            <td><%=sickbedinfo[i]. %></td>
-                                            <td><%=sickbedinfo[i]. %></td>
-                                        </tr>
-                                        <%} %>
-                                        <%} %>
-                                    </tbody>
-                                </table>
+                                <form class="forms-sample" runat="server">
+                                    <div class="form-group">
+                                        <label for="departmentid">科室编号</label>
+                                        <input type="text" class="form-control" runat="server" id="deid" disabled="disabled">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="departmentname">科室名称</label>
+                                        <input type="text" class="form-control" runat="server" id="dename">
+                                    </div>
+                                    <asp:Button runat="server" Text="修改" ID="update" CssClass="btn btn-gradient-primary mr-2" OnClick="update_Click"></asp:Button>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <asp:Button runat="server" Text="删除" ID="delete" CssClass="btn btn-gradient-primary mr-2" OnClick="delete_Click"></asp:Button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-               </form>
             </div>
         </div>
         <!-- content-wrapper ends -->
     </div>
-    <!-- main-panel ends -->    
+    <!-- main-panel ends -->
     <!-- page-body-wrapper ends -->
     <!-- container-scroller -->
     <!-- plugins:js -->
@@ -211,5 +187,6 @@
 </body>
 
 </html>
+
 
 

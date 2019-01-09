@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Hospital.Views.SystemManagement.Sickbed {
+namespace Hospital.Views.SystemManagement.DepartmentManage {
     
     
-    public partial class SickbedManage {
+    public partial class DepartmentManage {
         
         /// <summary>
         /// deidtext 控件。

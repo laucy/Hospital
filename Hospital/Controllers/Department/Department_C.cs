@@ -45,8 +45,26 @@ namespace Hospital.Controllers
             }
             odbcConnection.Close();
             return null;
-
         }
+
+        //获取科室信息
+        public static List<Department> GetDepartmentinfo()
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT * FROM `hospital`.`department` ";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (odbcDataReader.HasRows)
+            {
+                List<Department> list = Department.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+
         //根据科室名称获取科室id
         public static string DE_seekid(string dename)
         {
@@ -64,5 +82,62 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return null;
         }
+
+        //根据科室名称模糊查询
+        public static List<Department> GetDepartmentinfo(string dename= "")
+        {
+            OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT * FROM `hospital`.`department` "
+                + "WHERE `DE_Name` Like '%" + dename + "%'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (odbcDataReader.HasRows)
+            {
+                List<Department> list = Department.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+        //根据科室id查询科室信息
+        public static List<Department> GetDeinfobyID(string deid)
+        {
+            OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT * FROM `hospital`.`department` "
+                + "WHERE `DE_ID`='"+deid+"'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (odbcDataReader.HasRows)
+            {
+                List<Department> list = Department.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+
+        //insert
+        public static bool Insert(string deid,string dename)
+        {
+            string sql = "insert into `hospital`.`department` (`DE_ID`,`DE_Name`) values('"+deid+"','" + dename + "')";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        //update
+        public static bool UpdateDepartment(string deid,string dename)
+        {
+            string sql = "UPDATE `hospital`.`department` SET `DE_Name`='" + dename + "' WHERE `DE_ID`='"+deid+"'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        //delete
+        public static bool DeleteByID(string deid)
+        {
+            string sql = "DELETE FROM `hospital`.`department` WHERE DE_ID=" + deid;
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+
     }
 }

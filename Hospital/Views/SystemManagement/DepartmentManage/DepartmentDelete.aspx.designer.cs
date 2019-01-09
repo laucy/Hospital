@@ -7,45 +7,45 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Hospital.Views.SystemManagement.Sickbed {
+namespace Hospital.Views.SystemManagement.DepartmentManage {
     
     
-    public partial class SickbedManage {
+    public partial class DepartmentDelete {
         
         /// <summary>
-        /// deidtext 控件。
+        /// deid 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText deidtext;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText deid;
         
         /// <summary>
-        /// denametext 控件。
+        /// dename 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText denametext;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dename;
         
         /// <summary>
-        /// search 控件。
+        /// update 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button search;
+        protected global::System.Web.UI.WebControls.Button update;
         
         /// <summary>
-        /// insert 控件。
+        /// delete 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button insert;
+        protected global::System.Web.UI.WebControls.Button delete;
     }
 }
