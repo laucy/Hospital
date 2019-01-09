@@ -93,14 +93,14 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="DoctorIndex.html">
+                        <a class="nav-link" href="../../Views/Index/DoctorIndex.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">查看病人信息</span>
+                        <a class="nav-link" data-toggle="collapse" href="../../Views/Doctor/Case.aspx" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">填写病历</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                     </li>
@@ -135,7 +135,7 @@
                                             <input type="file" name="img[]" class="file-upload-default">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info" id="patient_ID" runat="server" />
-                                                <asp:Button ID="Button2" runat="server" Text="查询" class="file-upload-browse btn btn-gradient-primary" OnClick="Button2_Click" />
+                                                <asp:Button ID="Button2" runat="server" Text="查找" OnClick="Button2_Click1" class="file-upload-browse btn btn-gradient-primary"/>
                                             </div>
                                         </div>
                                         <div class="input-group col-xs-12">

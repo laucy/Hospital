@@ -27,6 +27,24 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
+        public static List<Drug> Select(string did)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT * FROM drug WHERE `D_ID` LIKE '%" + did + "%'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+
+            if (odbcDataReader.HasRows)
+            {
+                List<Drug> list = Drug.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            else
+                odbcConnection.Close();
+            return null;
+        }
         //根据药品id查药品单价
         public static float GetSellingPrice(int did)
         {
@@ -43,6 +61,12 @@ namespace Hospital.Controllers
             }
             odbcConnection.Close();
             return 0;
+        }
+        //根据药品名称判断药品是否存在
+        public static bool isExit(String pname)
+        {
+            string sql = "SELECT * FROM drug WHERE `D_Name` LIKE '%" + pname + "%'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //药品ID查药品名称
         public static string GetDrugname(int did)
@@ -61,7 +85,7 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return null;
         }
-        //判断药品名称是否存在
+        //判断药品ID是否存在
         public static bool ExistDrug(int did)
         {
             string sql = "select * from `hospital`.`drug` where D_ID='" + did + "'";
@@ -69,13 +93,12 @@ namespace Hospital.Controllers
             odbcConnection.Open();
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
-            if (!odbcDataReader.HasRows)//商品ID不存在 返回空
+            if (!odbcDataReader.HasRows)//药品ID不存在 返回空
             {
                 return false;
             }
             else
                 return true;
-
         }
         public static bool Insert(int did, string dname,string dstandard, float dpurchasingprice, float dsellingprice)
         {
@@ -83,6 +106,28 @@ namespace Hospital.Controllers
                 "values('" + did + "', '" + dname + "'" +
                 ",'" + dstandard + "','" + dpurchasingprice + "','" + dsellingprice + "',0)";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        public static bool UpdateDrug(String did,int info)
+        {
+            string sql = "update `hospital`.`drug` set `D_Store` ='"+info+ "' where `D_ID`='"+Convert.ToInt32(did)+"'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        //根据药品ID查询库存
+        public static int GetDrugStore(int did)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT D_Store FROM `hospital`.`drug` WHERE `D_ID`='" + did + "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader reader = odbcCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                int D_Store = Convert.ToInt32(reader[0]);
+                odbcConnection.Close();
+                return D_Store;
+            }
+            odbcConnection.Close();
+            return 0;
         }
     }
 }

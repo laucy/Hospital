@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisteredDrugs.aspx.cs" Inherits="Hospital.Views.DrugAdministrator.RegisteredDrugs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DrugStore.aspx.cs" Inherits="Hospital.Views.DrugAdministrator.DrugStore" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,8 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo" /> 医院管理系统</a>
+                <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo" />
+                    医院管理系统</a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <div class="search-field d-none d-md-block">
@@ -99,7 +100,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="RegisteredDrugs.aspx" aria-expanded="false" aria-controls="ui-basic" data-toggle="collapse">
+                        <a class="nav-link" href="RegisteredDrugs.aspx" aria-expanded="false" aria-controls="ui-basic">
                             <span class="menu-title">药品登记</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
@@ -117,7 +118,7 @@
                         </a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="DrugStore.aspx">
+                        <a class="nav-link"  data-toggle="collapse" href="DrugStore.aspx">
                             <span class="menu-title">查看药品库存</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
@@ -125,7 +126,7 @@
                 </ul>
             </nav>
             <!-- partial -->
-           <div class="main-panel">
+            <div class="main-panel">
                 <div class="content-wrapper">
                     <h3 class="page-title">
                         <span class="page-title-icon bg-gradient-primary text-white mr-2">
@@ -136,50 +137,51 @@
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">登记药品</h4>
+                                <h4 class="card-title">药品库存</h4>
                                 <form class="forms-sample" runat="server">
                                     <div class="form-group">
-                                        <label>药品ID名称</label>
+                                        <input type="file" name="img[]" class="file-upload-default">
                                         <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" id="drug_ID" runat="server" />
+                                            <input type="text" class="form-control file-upload-info" id="drug_name" runat="server" placeholder="药品名称" />
+                                            <asp:Button ID="search_drug" runat="server" Text="查找" class="file-upload-browse btn btn-gradient-primary" OnClick="search_drug_Click"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>药品名称</label>
-                                        <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" id="drug_Name" runat="server" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>药品规格</label>
-                                        <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" id="drug_Standard" runat="server" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>药品进价</label>
-                                        <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" id="drug_PurchasingPrice" runat="server" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>药品售价</label>
-                                        <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" id="drug_SellingPrice" runat="server" />
-                                        </div>
-                                    </div>
-                                    <div style="text-align: center" runat="server">
-                                        <asp:Button ID="register" runat="server" Text="登记" OnClick="register_Click" class="btn btn-gradient-primary mr-2"/>
-                                        <asp:Button ID="cancel" runat="server" Text="取消" OnClick="cancel_Click" class="btn btn-light mr-2"/>
-                                    </div>
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <p class="card-description">药品</p>
+                                                       <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>药品ID</th>
+                                                                    <th>药品名称</th>
+                                                                    <th>药品规格</th>
+                                                                    <th>单价</th>
+                                                                    <th>库存</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%for (i = 0; i < drugs.Count; i++)
+                                                                    {%>
+                                                                <tr>
+                                                                    <td><%=drugs[i].D_ID %></td>
+                                                                    <td><%=drugs[i].D_Name %></td>
+                                                                    <td><%=drugs[i].D_Standard %></td>
+                                                                    <td><%=Convert.ToString(drugs[i].D_SellingPrice)%></td>
+                                                                    <td><%=Convert.ToString(drugs[i].D_Store) %></td>
+                                                                </tr>
+                                                                <%} %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->

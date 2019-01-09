@@ -39,6 +39,23 @@ namespace Hospital.Controllers
             }
             return true;
         }
+        public static bool DrugOUT(List<Prescript> prescripts)//order属性E_ID传递进来，其他不用
+        {
+            foreach (Prescript prescript in prescripts)
+            {
+                int s = Drug_C.GetDrugStore(prescript.D_ID) - prescript.D_Number;
+                if (s <= 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    string sql = "update `hospital`.`drug` set `D_Store` ='" +s + "' where `D_ID`='" + prescript.D_ID + "'";
+                    Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+                }
+            }
+            return true;
+        }
     }
     
 }
