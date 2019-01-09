@@ -93,20 +93,32 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="DoctorIndex.html">
+                        <a class="nav-link" href="../../Views/Index/PharmacistIndex.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">查看病人信息</span>
+                        <a class="nav-link" href="RegisteredDrugs.aspx" aria-expanded="false" aria-controls="ui-basic" data-toggle="collapse">
+                            <span class="menu-title">药品登记</span>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
-                            <span class="menu-title">填写病历</span>
+                        <a class="nav-link" href="DrugIn.aspx">
+                            <span class="menu-title">药品入库</span>
+                            <i class="mdi mdi-contacts menu-icon"></i>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="DrugOut.aspx">
+                            <span class="menu-title">药品出库</span>
+                            <i class="mdi mdi-contacts menu-icon"></i>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="DrugStore.aspx">
+                            <span class="menu-title">查看药品库存</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
                     </li>

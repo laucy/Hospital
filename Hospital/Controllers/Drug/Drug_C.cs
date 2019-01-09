@@ -62,6 +62,12 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return 0;
         }
+        //根据药品名称判断药品是否存在
+        public static bool isExit(String pname)
+        {
+            string sql = "SELECT * FROM drug WHERE `D_Name` LIKE '%" + pname + "%'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
         //药品ID查药品名称
         public static string GetDrugname(int did)
         {
@@ -79,7 +85,7 @@ namespace Hospital.Controllers
             odbcConnection.Close();
             return null;
         }
-        //判断药品名称是否存在
+        //判断药品ID是否存在
         public static bool ExistDrug(int did)
         {
             string sql = "select * from `hospital`.`drug` where D_ID='" + did + "'";
@@ -87,7 +93,7 @@ namespace Hospital.Controllers
             odbcConnection.Open();
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
-            if (!odbcDataReader.HasRows)//商品ID不存在 返回空
+            if (!odbcDataReader.HasRows)//药品ID不存在 返回空
             {
                 return false;
             }

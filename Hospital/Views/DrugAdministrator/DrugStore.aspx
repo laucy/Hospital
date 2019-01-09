@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DrugIn.aspx.cs" Inherits="Hospital.Views.DrugAdministrator.DrugIn" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DrugStore.aspx.cs" Inherits="Hospital.Views.DrugAdministrator.DrugStore" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +92,7 @@
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                 <ul class="nav">
+                <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="../../Views/Index/PharmacistIndex.aspx">
                             <span class="menu-title">首页</span>
@@ -106,7 +106,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="DrugIn.aspx" data-toggle="collapse">
+                        <a class="nav-link" href="DrugIn.aspx">
                             <span class="menu-title">药品入库</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
@@ -118,7 +118,7 @@
                         </a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link"  href="DrugStore.aspx">
+                        <a class="nav-link"  data-toggle="collapse" href="DrugStore.aspx">
                             <span class="menu-title">查看药品库存</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
                         </a>
@@ -137,50 +137,45 @@
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">登记药品</h4>
+                                <h4 class="card-title">药品库存</h4>
                                 <form class="forms-sample" runat="server">
                                     <div class="form-group">
-                                        <label>药品ID</label>
                                         <input type="file" name="img[]" class="file-upload-default">
                                         <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" id="drug_ID" runat="server" />
-                                            <asp:Button ID="Search_Drug" runat="server" Text="查找" class="btn btn-gradient-primary mr-2" OnClick="Search_Drug_Click" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>药品名称</label>
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" id="drug_Name" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>药品规格</label>
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" id="drug_Standard" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>药品进价</label>
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" id="drug_PurchasingPrice" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>药品售价</label>
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" id="drug_SellingPrice" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>进货量</label>
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" id="drugin_number" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div style="text-align: center" runat="server">
-                                            <asp:Button ID="DrugsIn" runat="server" Text="入库" class="btn btn-gradient-primary mr-2" OnClick="DrugIn_Click" />
-                                            <asp:Button ID="Cancel" runat="server" Text="取消" class="btn btn-light mr-2" OnClick="Cancel_Click" />
+                                            <input type="text" class="form-control file-upload-info" id="drug_name" runat="server" placeholder="药品名称" />
+                                            <asp:Button ID="search_drug" runat="server" Text="查找" class="file-upload-browse btn btn-gradient-primary" OnClick="search_drug_Click"/>
                                         </div>
                                     </div>
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <p class="card-description">药品</p>
+                                                       <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>药品ID</th>
+                                                                    <th>药品名称</th>
+                                                                    <th>药品规格</th>
+                                                                    <th>单价</th>
+                                                                    <th>库存</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%for (i = 0; i < drugs.Count; i++)
+                                                                    {%>
+                                                                <tr>
+                                                                    <td><%=drugs[i].D_ID %></td>
+                                                                    <td><%=drugs[i].D_Name %></td>
+                                                                    <td><%=drugs[i].D_Standard %></td>
+                                                                    <td><%=Convert.ToString(drugs[i].D_SellingPrice)%></td>
+                                                                    <td><%=Convert.ToString(drugs[i].D_Store) %></td>
+                                                                </tr>
+                                                                <%} %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 </form>
                             </div>
                         </div>

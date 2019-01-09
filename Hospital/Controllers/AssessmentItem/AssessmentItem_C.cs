@@ -29,6 +29,27 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
+        //判断检查项ID是否存在
+        public static bool ExistText(int did)
+        {
+            string sql = "select * from `hospital`.`assessment_item` where IT_ID='" + did + "'";
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (!odbcDataReader.HasRows)//检查项ID不存在 返回空
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+        //根据检查项名称判断是否存在
+        public static bool isExit(String itname)
+        {
+            string sql = "SELECT * FROM assessment_item WHERE `IT_Name` LIKE '%" + itname + "%'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
         //根据检查项id查检查项单价
         public static float GetPrice(int did)
         {

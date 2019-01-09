@@ -33,7 +33,6 @@ namespace Hospital.Controllers
             }
             odbcConnection.Close();
             return null;
-
         }
         public static List<Patient> GetPatientinformation(string pid)
         {
@@ -50,6 +49,11 @@ namespace Hospital.Controllers
             }
             odbcConnection.Close();
             return null;
+        }
+        public static bool isExit(String pid)
+        {
+            string sql = "select *from patient where P_ID='" + Convert.ToInt32(pid) + "'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
     }
 }
