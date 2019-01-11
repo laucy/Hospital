@@ -107,11 +107,9 @@ namespace Hospital.Views.Doctor
                     sex1.Visible = true;
                     age1.Visible = true;
                     phone1.Visible = true;
-                    Button2.Attributes.Add("onclick", "return false;");
                 }
             }
         }
-
 
         protected void Button_search_text_Click(object sender, EventArgs e)
         {
