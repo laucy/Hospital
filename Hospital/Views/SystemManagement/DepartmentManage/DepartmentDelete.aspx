@@ -100,25 +100,25 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientCaseSearch/PatientCaseSearch.aspx">
+                        <a class="nav-link" href="DepartmentManage.aspx">
                             <span class="menu-title">科室管理</span>
                             <i class="mdi mdi-view-grid menu-icon "></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../Employee/Employeemanage.aspx">
                             <span class="menu-title">员工管理</span>
                             <i class="mdi mdi-account-multiple menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../Instrument/Instrumentmanage.aspx">
                             <span class="menu-title">仪器管理</span>
                             <i class="mdi mdi-flask-empty-outline  menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../Sickbed/SickbedManage.aspx">
                             <span class="menu-title">病床管理</span>
                             <i class="mdi mdi-hotel menu-icon"></i>
                         </a>

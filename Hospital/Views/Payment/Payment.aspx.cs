@@ -59,7 +59,8 @@ namespace Hospital.Views.Payment
         protected void submit_Click(object sender, EventArgs e)
         {
             Response.Write("<script language=javascript>window.alert('缴费成功！');</script>");
-            pid.Text ='0'.ToString();
+            pid.Text ="";
+            pname.Text = "";
             testsum = 0;
             prescriptsum = 0;
             hsum = 0;

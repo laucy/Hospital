@@ -14,7 +14,7 @@ namespace Hospital.Views.SystemManagement.DepartmentManage
         protected void Page_Load(object sender, EventArgs e)
         {
             string departmentid = Request.QueryString["deid"];      
-            if (departmentid != "") { 
+            if (departmentid != null) { 
                List<Department> departments = Department_C.GetDeinfobyID(departmentid);
                deid.Value = departments[0].DE_ID.ToString();
                dename.Value = departments[0].DE_Name;

@@ -13,12 +13,12 @@ namespace Hospital.Models
         public string P_Name { get; set; }
         public string P_Sex { get; set; }
         public int P_Age { get; set; }
-        public int P_Phone { get; set; }
+        public String P_Phone { get; set; }
 
         public Patient() { }
        
         public Patient( int pid, string pname, string psex, int page,
-             int pphone)
+             String pphone)
         {
             P_ID = pid;
             P_Name = pname;
@@ -38,7 +38,7 @@ namespace Hospital.Models
                 patient.P_Name = reader.GetString(1);
                 patient.P_Sex = reader.GetString(2);
                 patient.P_Age = reader.GetInt32(3);
-                patient.P_Phone = reader.GetInt32(4);
+                patient.P_Phone = reader.GetString(4);
                 list.Add(patient);
             }
             return list;

@@ -32,7 +32,7 @@ namespace Hospital.Views.LLogin
                     Response.Redirect("/Views/Index/DoctorIndex.aspx");
                 else if (user.U_Role == "4")//药品管理员跳转的首页4
                     Response.Redirect("/Views/Index/PharmacistIndex.aspx");
-                else if (user.U_Role == "4")//系统管理员跳转的首页5
+                else if (user.U_Role == "5")//系统管理员跳转的首页5
                     Response.Redirect("/Views/Index/Admin.aspx");
                 else if (user.U_Role == "6")//病人跳转的首页
                     Response.Redirect("/Views/Index/PatientIndex.aspx");

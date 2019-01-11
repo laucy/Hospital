@@ -145,6 +145,7 @@
     <Content Include="Views\SystemManagement\DepartmentManage\DepartmentManage.aspx" />
     <Content Include="Views\SystemManagement\Employee\Employeemanage.aspx" />
     <Content Include="Views\SystemManagement\Instrument\Instrumentmanage.aspx" />
+    <Content Include="Views\SystemManagement\Sickbed\SickbedDelete.aspx" />
     <Content Include="Views\SystemManagement\Sickbed\SickbedManage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -324,6 +325,13 @@
     </Compile>
     <Compile Include="Views\SystemManagement\Instrument\Instrumentmanage.aspx.designer.cs">
       <DependentUpon>Instrumentmanage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemManagement\Sickbed\SickbedDelete.aspx.cs">
+      <DependentUpon>SickbedDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagement\Sickbed\SickbedDelete.aspx.designer.cs">
+      <DependentUpon>SickbedDelete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SystemManagement\Sickbed\SickbedManage.aspx.cs">
       <DependentUpon>SickbedManage.aspx</DependentUpon>

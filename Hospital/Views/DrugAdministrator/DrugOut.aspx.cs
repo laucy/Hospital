@@ -14,7 +14,7 @@ namespace Hospital.Views.DrugAdministrator
         public int j;
         protected void Page_Load(object sender, EventArgs e)
         {
-            prescripts = Prescript_C.SelectPrescript(101);
+            prescripts = Prescript_C.SelectPrescript(39);
         }
 
         protected void 查找_Click(object sender, EventArgs e)

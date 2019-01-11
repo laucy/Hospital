@@ -104,12 +104,6 @@
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
-                            <span class="menu-title">填写病历</span>
-                            <i class="mdi mdi-contacts menu-icon"></i>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <!-- partial -->
