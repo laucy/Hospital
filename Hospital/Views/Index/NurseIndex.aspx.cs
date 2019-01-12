@@ -18,6 +18,7 @@ namespace Hospital.Views.Index
             Employee emp = Employee_C.SeekDep(Session["uid"].ToString());
             Department dep = Department_C.DE_seekname(emp.DE_ID.ToString());
             Session["dep"] = dep.DE_Name;
+            Session["depid"] = dep.DE_ID;
             show_depart.InnerHtml = dep.DE_Name;
 
             //加载病床信息
@@ -26,7 +27,13 @@ namespace Hospital.Views.Index
             foreach (Sickbed sb in sb_list)
             {
                 //Response.Write("<script languge='javascript'>alert('病床信息');</script>");
-                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript" + i, "<script type='text/javascript'>AddTable('" + sb.R_ID + "','" + sb.S_ID + "','" + sb.D_ID + "','" + sb.S_Bool + "');</script>");
+                Patient patient = Patient_C.GetpInfo_bybed(sb.S_ID.ToString());
+                if (patient == null)
+                {
+                    patient = new Patient();
+                    patient.P_Name = "*";
+                }                   
+                ClientScript.RegisterStartupScript(ClientScript.GetType(), "myscript" + i, "<script type='text/javascript'>AddTable('" + sb.R_ID + "','" + sb.S_ID + "','" + patient.P_Name + "','" + sb.S_Bool + "');</script>");
                 i++;
             }
         }

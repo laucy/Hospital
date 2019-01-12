@@ -14,9 +14,32 @@
   <link rel="stylesheet" href="../../css/style.css"/>
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+    <script  type="text/javascript">
+        function AddTable(pname, psex, page, diagnose,advance) {
+            var tbody = document.getElementById('tbody_info');
+            var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.innerHTML = pname;
+            var td2 = document.createElement('td');
+            td2.innerHTML = psex;
+            var td3 = document.createElement('td');
+            td3.innerHTML = page;
+            var td4 = document.createElement('td');
+            td4.innerHTML = diagnose;
+            var td5 = document.createElement('td');
+            td5.innerHTML = advance;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tbody.appendChild(tr);  
+        }
+    </script>
     <title>医护工作站</title>
 </head>
 <body>
+    <form runat="server">
     <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -98,7 +121,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="/Views/Index/NurseIndex.aspx" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" href="/Views/Index/NurseIndex.aspx">
               <span class="menu-title">分配病床</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
@@ -151,31 +174,14 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>病房</th>
-                        <th>床位</th>
-                        <th>病人</th>
-                        <th>状态</th>
+                        <th>患者姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>诊断结果</th>
+                        <th>医嘱</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>301</td>
-                        <td>1</td>
-                        <td>韩梅</td>
-                        <td><label class="badge badge-danger">Pending</label></td>
-                      </tr>
-                      <tr>
-                        <td>301</td>
-                        <td>2</td>
-                        <td>李江</td>
-                        <td><label class="badge badge-warning">In progress</label></td>
-                      </tr>
-                      <tr>
-                        <td>301</td>
-                        <td>3</td>
-                        <td>约翰</td>
-                        <td><label class="badge badge-info">Fixed</label></td>
-                      </tr>
+                    <tbody id="tbody_info">
                     </tbody>
                   </table>
                 </div>
@@ -192,6 +198,7 @@
     </div>
     </div>
   <!-- container-scroller -->
+    </form>
 
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>

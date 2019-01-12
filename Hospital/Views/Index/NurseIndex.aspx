@@ -37,6 +37,7 @@
                 td4.appendChild(la);
                 if (sbool == '0') {
                     la.innerHTML = "空";
+                    la.className = "badge badge-info";
                     la.addEventListener("click", function () {
                         var c = document.getElementById('Case_ID').value;
                         if (c == "")
@@ -144,7 +145,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="/Views/Index/NurseIndex.aspx" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" href="/Views/Index/NurseIndex.aspx">
               <span class="menu-title"id="func1">分配病床</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
