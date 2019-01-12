@@ -31,16 +31,17 @@ namespace Hospital.Controllers
         public static bool DistributeBed(string sid, string cid)
         {
             OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
-            sqlConnection1.Open();
-            OdbcCommand odbcCommand1 = new OdbcCommand("UPDATE sickbed SET S_Bool='1' WHERE S_ID='" + sid + "'", sqlConnection1);
-            OdbcCommand odbcCommand2 = new OdbcCommand("UPDATE hospitalization SET S_ID='" + sid + "' WHERE C_ID='" + cid + "'", sqlConnection1);
-            //OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
-
-            if (odbcCommand1.ExecuteNonQuery() == 1 && odbcCommand2.ExecuteNonQuery() == 1)
+            sqlConnection1.Open();            
+            OdbcCommand odbcCommand = new OdbcCommand("UPDATE hospitalization SET S_ID='" + sid + "' WHERE C_ID='" + cid + "'", sqlConnection1);
+            if(odbcCommand.ExecuteNonQuery() == 1)
             {
-                sqlConnection1.Close();
-                return true;
-            }
+                odbcCommand = new OdbcCommand("UPDATE sickbed SET S_Bool='1' WHERE S_ID='" + sid + "'", sqlConnection1);
+                if (odbcCommand.ExecuteNonQuery() == 1)
+                {
+                    sqlConnection1.Close();
+                    return true;
+                }                   
+            }           
             sqlConnection1.Close();
             return false;
         }

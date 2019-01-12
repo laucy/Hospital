@@ -15,8 +15,14 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
     <script  type="text/javascript">
-        function onDistributeSucceed(result) {
-            alert(result);
+        function onDistributeSucceed(res) {
+            if (res == "1")
+            {
+                alert("分配成功");
+                location.reload();
+            }
+            else
+                alert("分配失败，请检查输入信息是否有误！");
         }
         function AddTable(rid, sid, did, sbool) {
             if (sid != "0")
@@ -47,8 +53,6 @@
                         else
                         {
                             PageMethods.Distribute(sid, c, onDistributeSucceed);
-                            alert("分配成功");
-                            la.innerHTML = "占";
                         }                                               
                     }, false);                    
                 } 

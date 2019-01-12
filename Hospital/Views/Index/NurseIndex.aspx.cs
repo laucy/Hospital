@@ -38,9 +38,12 @@ namespace Hospital.Views.Index
             }
         }
         [WebMethod]
-        public static void Distribute(string sid, string cid)
+        public static string Distribute(string sid, string cid)
         {
-            Sickbed_C.DistributeBed(sid, cid);
+            if (Sickbed_C.DistributeBed(sid, cid))
+                return "1";
+            return "0";
+                
         }
     }
 }
