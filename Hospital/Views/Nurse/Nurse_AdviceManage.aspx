@@ -137,40 +137,13 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-12">
-			
-            </div>
-          </div>
-          <div class="page-header">
-            <h3 class="page-title">
-              <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                <i class="mdi mdi-home"></i>                 
-              </span>
-                床位一览
-            </h3>
-          </div>
           <div class="main-panel">
         <div class="content-wrapper">
-          <div class="page-header">
-            <h3 class="page-title">
-              Basic Tables
-            </h3>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-              </ol>
-            </nav>
-          </div>
           <div class="row">
             <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                  <h4 class="card-title">医嘱详情</h4>
                   <table class="table">
                     <thead>
                       <tr>
