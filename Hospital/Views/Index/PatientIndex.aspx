@@ -134,12 +134,12 @@
                 <div class="card-body">              
                   <div class="row mt-3">
                     <div class="col-6 pr-1">
-                      <img src="../../images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_5.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_6.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                     <div class="col-6 pl-1">
-                      <img src="../../images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_7.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_8.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                   </div>
                  
