@@ -169,11 +169,10 @@
          <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">患者信息</h4>
+                  <h4 class="card-title">患者信息</h4>                    
                   <form class="form-sample">
-                    <p class="card-description">
-                      Patient info
-                    </p>
+                    <label><label style="color:red">*</label><label class="card-description">为必填项</label>                                       
+                    </label>
 			        <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
@@ -206,7 +205,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">住院编号</label>
+                          <label class="col-sm-3 col-form-label"><label style="color:red">*</label>住院编号</label>
                           <div class="col-sm-9">
                             <input type="text" class="form-control" id="Case_ID" runat="server"/>
                           </div>
