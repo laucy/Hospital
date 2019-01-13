@@ -14,18 +14,60 @@
   <link rel="stylesheet" href="../../css/style.css"/>
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+    <script  type="text/javascript">
+        function onDistributeSucceed(res) {
+            if (res == "1")
+            {
+                alert("分配成功");
+                location.reload();
+            }
+            else
+                alert("分配失败，请检查输入信息是否有误！");
+        }
+        function AddTable(rid, sid, did, sbool) {
+            if (sid != "0")
+            {
+                var tbody = document.getElementById('tbody_info');
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                td1.innerHTML = rid;
+                var td2 = document.createElement('td');
+                td2.innerHTML = sid;
+                var td3 = document.createElement('td');
+                td3.innerHTML = did;
+                var la = document.createElement('label');
+                la.innerHTML = "占";
+                la.className = "badge badge-danger";
+                la.id = sid;
+                var td4 = document.createElement('td');
+                td4.appendChild(la);
+                if (sbool == '0') {
+                    la.innerHTML = "空";
+                    la.className = "badge badge-info";
+                    la.addEventListener("click", function () {
+                        var c = document.getElementById('Case_ID').value;
+                        if (c == "")
+                        {
+                            alert("请输入病人住院编号！")
+                        }
+                        else
+                        {
+                            PageMethods.Distribute(sid, c, onDistributeSucceed);
+                        }                                               
+                    }, false);                    
+                } 
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tbody.appendChild(tr);
+            }          
+        }
+    </script>
     <title>医护工作站</title>
 </head>
 <body>
-    <!--
     <form id="form1" runat="server">
-    <div>
-    <asp:TreeView ID="TreeView1" runat="server">
-        </asp:TreeView>
-    </div>
-        
-    </form>
-    -->
     <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -34,20 +76,20 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field d-none d-md-block">
-          <form class="d-flex align-items-center h-100" action="#">
-            <div class="input-group">
-              <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>                
-              </div>
-              <input type="text" class="form-control bg-transparent border-0" placeholder="查询">
-            </div>
-          </form>
+            <form class="d-flex align-items-center h-100" action="#">
+                <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                        <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                    </div>
+                    <input type="text" class="form-control bg-transparent border-0" placeholder="查询" />
+                </div>
+            </form>
         </div>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="../../images/faces/face1.jpg" alt="image">
+                <img src="../../images/faces/face1.jpg" alt="image"/>
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
@@ -107,8 +149,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="/Views/Index/NurseIndex.aspx" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-title">分配病床</span>
+            <a class="nav-link" href="/Views/Index/NurseIndex.aspx">
+              <span class="menu-title"id="func1">分配病床</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
           </li>
@@ -123,40 +165,74 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-12">
-			
-            </div>
-          </div>
-          <div class="page-header">
-            <h3 class="page-title">
-              <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                <i class="mdi mdi-home"></i>                 
-              </span>
-                床位一览
-            </h3>
-          </div>
-          <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="page-header">
-            <h3 class="page-title">
-              Basic Tables
-            </h3>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-              </ol>
-            </nav>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 grid-margin stretch-card">
+            <div class="row">
+         <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                  <h4 class="card-title">患者信息</h4>
+                  <form class="form-sample">
+                    <p class="card-description">
+                      Patient info
+                    </p>
+			        <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">患者姓名</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">年龄</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">性别</label>
+                          <div class="col-sm-9">
+                            <select class="form-control">
+                              <option>男</option>
+                              <option>女 </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">住院编号</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Case_ID" runat="server"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">备注</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body" id="div_info">
+                  <h4 class="card-title">床位一览</h4>
                   <table class="table">
                     <thead>
                       <tr>
@@ -166,37 +242,23 @@
                         <th>状态</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>301</td>
-                        <td>1</td>
-                        <td>韩梅</td>
-                        <td><label class="badge badge-danger">Pending</label></td>
-                      </tr>
-                      <tr>
-                        <td>301</td>
-                        <td>2</td>
-                        <td>李江</td>
-                        <td><label class="badge badge-warning">In progress</label></td>
-                      </tr>
-                      <tr>
-                        <td>301</td>
-                        <td>3</td>
-                        <td>约翰</td>
-                        <td><label class="badge badge-info">Fixed</label></td>
-                      </tr>
+                    <tbody id="tbody_info">  
                     </tbody>
-                  </table>
+                  </table>              
                 </div>
               </div>
             </div>
-        <!-- content-wrapper ends -->       
+        <!-- content-wrapper ends -->
+       </div>       
       </div>
       <!-- main-panel ends -->
     </div>
+    </div>
     <!-- page-body-wrapper ends -->
-  </div>
   <!-- container-scroller -->
+    <input id="bed" type="hidden" runat="server"/>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+    </form>
 
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>

@@ -1,4 +1,5 @@
-﻿using Hospital.Models;
+﻿using Hospital.Controllers.DB;
+using Hospital.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,40 @@ namespace Hospital.Controllers
 {
     public class Sickbed_C
     {
+        public static List<Sickbed> SickBed_Info(string dep)
+        {
+            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
+            sqlConnection1.Open();
+            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where DE_ID='" + dep + "'", sqlConnection1);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+
+            if (odbcDataReader.HasRows)
+            {
+                List<Sickbed> list = Sickbed.getList(odbcDataReader);
+                sqlConnection1.Close();
+                return list;
+            }
+            else
+                sqlConnection1.Close();
+            return null;
+        }
+        public static bool DistributeBed(string sid, string cid)
+        {
+            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
+            sqlConnection1.Open();            
+            OdbcCommand odbcCommand = new OdbcCommand("UPDATE hospitalization SET S_ID='" + sid + "' WHERE C_ID='" + cid + "'", sqlConnection1);
+            if(odbcCommand.ExecuteNonQuery() == 1)
+            {
+                odbcCommand = new OdbcCommand("UPDATE sickbed SET S_Bool='1' WHERE S_ID='" + sid + "'", sqlConnection1);
+                if (odbcCommand.ExecuteNonQuery() == 1)
+                {
+                    sqlConnection1.Close();
+                    return true;
+                }                   
+            }           
+            sqlConnection1.Close();
+            return false;
+        }
         //根据病床号查询病床信息
         public static List<Sickbed> Getinfobysid(string sid = "")
         {
