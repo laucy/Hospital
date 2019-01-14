@@ -111,7 +111,6 @@ namespace Hospital.Views.Doctor
             }
         }
 
-
         protected void Button_search_text_Click(object sender, EventArgs e)
         {
             int i = 0;

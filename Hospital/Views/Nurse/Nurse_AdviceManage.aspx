@@ -137,7 +137,6 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-lg-6 grid-margin stretch-card">
@@ -160,8 +159,7 @@
                 </div>
               </div>
             </div>
-        <!-- content-wrapper ends -->       
-      </div>
+        <!-- content-wrapper ends -->           
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
