@@ -88,7 +88,7 @@ namespace Hospital.Controllers
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
             string sql = "SELECT * FROM `hospital`.`sickbed` "
-                + "WHERE `D_ID`= '" + deid + "'";
+                + "WHERE `DE_ID`= '" + deid + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
             if (odbcDataReader.HasRows)
@@ -105,7 +105,7 @@ namespace Hospital.Controllers
         public static bool Insert(string sid, string rid,string sbool,string dename )
         {
             string deid = Department_C.DE_seekid(dename);
-            string sql = "insert into `hospital`.`sickbed` (`S_ID`,`R_ID`,`S_Bool`,`D_ID`) values('" + sid + "','" + rid + "','" + sbool + "','" + deid + "')";
+            string sql = "insert into `hospital`.`sickbed` (`S_ID`,`R_ID`,`S_Bool`,`DE_ID`) values('" + sid + "','" + rid + "','" + sbool + "','" + deid + "')";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //update
@@ -113,7 +113,7 @@ namespace Hospital.Controllers
         {
             string deid = Department_C.DE_seekid(dename);
             string sql = "UPDATE `hospital`.`sickbed` SET `R_ID`='" + rid + "',  `S_Bool`='" + sbool + "'," +
-                " `D_ID`='" + deid + "' WHERE `S_ID`='" + sid + "'";
+                " `DE_ID`='" + deid + "' WHERE `S_ID`='" + sid + "'";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //delete
