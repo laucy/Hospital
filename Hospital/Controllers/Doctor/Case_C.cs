@@ -40,7 +40,24 @@ namespace Hospital.Controllers
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "select * from `case` where P_ID='" + Convert.ToInt32(pid) + "'";
+            string sql = "select * from `ccase` where P_ID='" + Convert.ToInt32(pid) + "'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+            if (odbcDataReader.HasRows)
+            {
+                List<Case> list = Case.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+        //根据科室获取所有病人病例信息
+        public static List<Case> GetAll_Info(string deid)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "select * from `ccase` where DE_ID='" + deid+ "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
             if (odbcDataReader.HasRows)

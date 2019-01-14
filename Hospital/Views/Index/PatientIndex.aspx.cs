@@ -16,8 +16,8 @@ namespace Hospital.Views.Index
         protected void Page_Load(object sender, EventArgs e)
         {
             string patientid=null;
-            if (patientid != null) {
-                patientid = Session["uid"].ToString();
+            patientid = Session["uid"].ToString();
+            if (patientid != null) {              
                 patients = Patient_C.GetPatientinformation(patientid);
                 if (patients[0].P_Sex == "男")
                     sex = "先生";
