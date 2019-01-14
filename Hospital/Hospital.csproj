@@ -143,8 +143,12 @@
     <Content Include="Views\Payment\Payment.aspx" />
     <Content Include="Views\SystemManagement\DepartmentManage\DepartmentDelete.aspx" />
     <Content Include="Views\SystemManagement\DepartmentManage\DepartmentManage.aspx" />
-    <Content Include="Views\SystemManagement\Employee\Employeemanage.aspx" />
-    <Content Include="Views\SystemManagement\Instrument\Instrumentmanage.aspx" />
+    <Content Include="Views\SystemManagement\Employeemanagement\Employeemanagement.aspx" />
+    <Content Include="Views\SystemManagement\Employeemanagement\InsertEmployee.aspx" />
+    <Content Include="Views\SystemManagement\Employeemanagement\UpdateEmployee.aspx" />
+    <Content Include="Views\SystemManagement\InstrumentManagement\InsertInstrument.aspx" />
+    <Content Include="Views\SystemManagement\InstrumentManagement\InstrumrntManagement.aspx" />
+    <Content Include="Views\SystemManagement\InstrumentManagement\UpdateInstrument.aspx" />
     <Content Include="Views\SystemManagement\Sickbed\SickbedManage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,6 +160,7 @@
     <Compile Include="Controllers\Drug\Drug_C.cs" />
     <Compile Include="Controllers\Employee\Employee_C.cs" />
     <Compile Include="Controllers\Hospitalization\Hospitalization_C.cs" />
+    <Compile Include="Controllers\Instrument_C.cs" />
     <Compile Include="Controllers\Patient\Patient_C.cs" />
     <Compile Include="Controllers\Prescript_C.cs" />
     <Compile Include="Controllers\Sickbed\Sickbed_C.cs" />
@@ -311,19 +316,47 @@
     <Compile Include="Views\SystemManagement\DepartmentManage\DepartmentManage.aspx.designer.cs">
       <DependentUpon>DepartmentManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SystemManagement\Employee\Employeemanage.aspx.cs">
-      <DependentUpon>Employeemanage.aspx</DependentUpon>
+    <Compile Include="Views\SystemManagement\Employeemanagement\Employeemanagement.aspx.cs">
+      <DependentUpon>Employeemanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SystemManagement\Employee\Employeemanage.aspx.designer.cs">
-      <DependentUpon>Employeemanage.aspx</DependentUpon>
+    <Compile Include="Views\SystemManagement\Employeemanagement\Employeemanagement.aspx.designer.cs">
+      <DependentUpon>Employeemanagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SystemManagement\Instrument\Instrumentmanage.aspx.cs">
-      <DependentUpon>Instrumentmanage.aspx</DependentUpon>
+    <Compile Include="Views\SystemManagement\Employeemanagement\InsertEmployee.aspx.cs">
+      <DependentUpon>InsertEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SystemManagement\Instrument\Instrumentmanage.aspx.designer.cs">
-      <DependentUpon>Instrumentmanage.aspx</DependentUpon>
+    <Compile Include="Views\SystemManagement\Employeemanagement\InsertEmployee.aspx.designer.cs">
+      <DependentUpon>InsertEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemManagement\Employeemanagement\UpdateEmployee.aspx.cs">
+      <DependentUpon>UpdateEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagement\Employeemanagement\UpdateEmployee.aspx.designer.cs">
+      <DependentUpon>UpdateEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemManagement\InstrumentManagement\InsertInstrument.aspx.cs">
+      <DependentUpon>InsertInstrument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagement\InstrumentManagement\InsertInstrument.aspx.designer.cs">
+      <DependentUpon>InsertInstrument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemManagement\InstrumentManagement\InstrumrntManagement.aspx.cs">
+      <DependentUpon>InstrumrntManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagement\InstrumentManagement\InstrumrntManagement.aspx.designer.cs">
+      <DependentUpon>InstrumrntManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemManagement\InstrumentManagement\UpdateInstrument.aspx.cs">
+      <DependentUpon>UpdateInstrument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagement\InstrumentManagement\UpdateInstrument.aspx.designer.cs">
+      <DependentUpon>UpdateInstrument.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SystemManagement\Sickbed\SickbedManage.aspx.cs">
       <DependentUpon>SickbedManage.aspx</DependentUpon>

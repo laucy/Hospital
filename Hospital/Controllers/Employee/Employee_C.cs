@@ -28,18 +28,32 @@ namespace Hospital.Controllers
                 sqlConnection1.Close();
             return null;
         }
+        //根据姓名查找员工信息
         public static List<Employee> SelectFuzzy(string info)
         {
-            string sql = "SELECT * FROM employee "
-                + "WHERE `E_ID` LIKE '%" + info + "%'"
-                + "OR `E_Name` LIKE '%" + info + "%'"
-                + "OR `E_Sex` LIKE '%" + info + "%'"
-                + "OR `E_Phone` LIKE '%" + info + "%'"
-                + "OR `E_Position` LIKE '%" + info + "%'";
-            OdbcConnection odbcConnection = DBManager.GetOdbcConnection();
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
+            string sql = "SELECT * FROM employee WHERE `E_Name` LIKE '%" + info + "%'";
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+            if (odbcDataReader.HasRows)
+            {
+                List<Employee> list = Employee.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            odbcConnection.Close();
+            return null;
+        }
+        //根据员工ID查找员工信息
+        public static List<Employee> Select(string eid)
+        {
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            string sql = "SELECT * FROM employee WHERE `E_ID` LIKE '%" + eid + "%'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+
             if (odbcDataReader.HasRows)
             {
                 List<Employee> list = Employee.getList(odbcDataReader);
@@ -68,6 +82,22 @@ namespace Hospital.Controllers
             else
                 odbcConnection.Close();
             return null;
+        }
+        //插入员工信息
+        public static bool Insert(int eid, string ename,string esex,int eage, int ieid,String eposition,string ephone)
+        {
+            string sql = "insert into `hospital`.`employee`  values('" + eid + "','" + ename + "','" + esex + "','" + eage + "','" + ieid + "','" + eposition + "','" + ephone + "')";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        public static bool Update(int eid, string ename, string esex, int eage, int ieid, String eposition, string ephone)
+        {
+            string sql = "UPDATE `hospital`.`employee` SET E_Name='" + ename + "',E_Sex='" + esex + "',E_Age='" + eage + "',DE_ID='" + ieid + "',E_Position='" + eposition + "',E_Phone='" + ephone + "' WHERE `E_ID`='" + eid + "'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        public static bool DeleteByID(string eid)
+        {
+            string sql = "DELETE FROM `hospital`.`Employee` WHERE E_ID=" + eid;
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
     }
 }

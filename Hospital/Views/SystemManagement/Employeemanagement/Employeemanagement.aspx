@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Instrumentmanage.aspx.cs" Inherits="Hospital.Views.SystemManagement.Instrument.Instrumentmanage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Employeemanagement.aspx.cs" Inherits="Hospital.Views.SystemManagement.Employeemanagement.Employeemanagement" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -125,42 +125,75 @@
         </ul>
       </nav>
       <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-12">
-			
-            </div>
-          </div>
-          <div class="page-header">
-            <h3 class="page-title">
-              <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                <i class="mdi mdi-home"></i>                 
-              </span>
-              关心病人，服务病人！
-            </h3>
-          </div>
-          <div class="row">
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">              
-                  <div class="row mt-3">
-                    <div class="col-6 pr-1">
-                      <img src="../../../images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../../images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
+        <div class="main-panel">
+               <form runat="server">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                        </div>
                     </div>
-                    <div class="col-6 pl-1">
-                      <img src="../../../images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../../images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
+                    <div class="page-header">
+                        <h3 class="page-title">
+                            <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                                <i class="mdi mdi-home"></i>
+                            </span>
+                            关心病人，服务病人！
+                        </h3>
                     </div>
-                  </div>               
+                    <div class="col-lg-12 grid-margin stretch-card">                       
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">科室信息表</h4>
+                                <p class="card-description">
+                                    Employee Information Table
+                                </p>
+                                <label>员工编号</label>
+                                <input id="eidtext"  runat="server"/>
+                                 <label>员工姓名</label>
+                                <input id="enametext"  runat="server"/>
+                                <asp:Button ID="search" runat="server" Text="查找" CssClass="btn btn-gradient-primary mr-2" OnClick="search_Click"/>
+                                <asp:Button ID="insert" runat="server" Text="添加" CssClass="btn btn-gradient-primary mr-2" OnClick="insert_Click"/>
+                                <br /> <br /> <br /> <br />
+                                <div class="row">
+                                            <div class="col-lg-12 grid-margin stretch-card">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>员工ID</th>
+                                                                    <th>姓名</th>
+                                                                    <th>性别</th>
+                                                                    <th>年龄</th>
+                                                                    <th>部门名称</th>
+                                                                    <th>职位编号</th>
+                                                                    <th>手机号</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%for (i = 0; i < employees.Count; i++)
+                                                                    {%>
+                                                                <tr>
+                                                                    <td><p><a href="UpdateEmployee.aspx?E_ID=<%=Convert.ToString(employees[i].E_ID) %>"><%=Convert.ToString(employees[i].E_ID) %></a></p></td>
+                                                                    <td><p><a href="UpdateEmployee.aspx?E_Name=<%=employees[i].E_Name %>"><%=employees[i].E_Name %></a></p></td>
+                                                                    <td><p><a href="UpdateEmployee.aspx?E_Sex=<%=employees[i].E_Sex %>"><%=employees[i].E_Sex %></a></p></td>
+                                                                    <td><p><a href="UpdateEmployee.aspx?E_Age=<%=Convert.ToString(employees[i].E_Age)%>"><%=Convert.ToString(employees[i].E_Age)%></a></p></td>
+                                                                    <td><p><a href="UpdateEmployee.aspx?DE_ID=<%=Convert.ToString(employees[i].DE_ID) %>"><%=Convert.ToString(employees[i].DE_ID) %></a></p></td>
+                                                                    <td><p><a href="UpdateEmployee.aspx?E_Position=<%=employees[i].E_Position %>"><%=employees[i].E_Position %></a></p></td>
+                                                                    <td><p><a href="UpdateEmployee.aspx?E_Phone=<%=employees[i].E_Phone %>"><%=employees[i].E_Phone %></a></p></td>
+                                                                </tr>
+                                                                <%} %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+               </form>
             </div>
-          </div>
-        </div>
-        <!-- content-wrapper ends -->       
-      </div>
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
@@ -183,3 +216,13 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
