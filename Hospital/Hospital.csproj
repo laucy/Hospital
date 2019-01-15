@@ -131,6 +131,7 @@
     <Content Include="Views\DrugAdministrator\RegisteredDrugs.aspx" />
     <Content Include="Views\Index\CashierIndex.aspx" />
     <Content Include="Views\Index\DoctorIndex.aspx" />
+    <Content Include="Views\Index\Nurse1Index.aspx" />
     <Content Include="Views\Index\NurseIndex.aspx" />
     <Content Include="Views\Index\PatientIndex.aspx" />
     <Content Include="Views\Index\Admin.aspx" />
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="Views\Index\DoctorIndex.aspx.designer.cs">
       <DependentUpon>DoctorIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Index\Nurse1Index.aspx.cs">
+      <DependentUpon>Nurse1Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Index\Nurse1Index.aspx.designer.cs">
+      <DependentUpon>Nurse1Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index\NurseIndex.aspx.cs">
       <DependentUpon>NurseIndex.aspx</DependentUpon>

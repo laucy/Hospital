@@ -40,7 +40,7 @@ namespace Hospital.Controllers
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "select * from `ccase` where P_ID='" + Convert.ToInt32(pid) + "'";
+            string sql = "select * from `case` where P_ID='" + Convert.ToInt32(pid) + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
             if (odbcDataReader.HasRows)
@@ -57,7 +57,7 @@ namespace Hospital.Controllers
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "select * from `ccase` where DE_ID='" + deid+ "'";
+            string sql = "select * from `case` where DE_ID='" + deid+ "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
             if (odbcDataReader.HasRows)
@@ -73,6 +73,12 @@ namespace Hospital.Controllers
         public static bool UpdateCase(int P_ID,string C_Complain,string C_Diagnose,string C_Advice,string H_Flag)
         {
             string sql = "update `hospital`.`case` set `C_Complain`='" + C_Complain + "',`C_Diagnose`='" + C_Diagnose + "',`C_Advice`='" + C_Advice + "',`H_Flag`='" + H_Flag + "' where `P_ID`='" + P_ID+ "'";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
+        //根据病人id，医生id判断是不是已挂号
+        public static bool register(string pid, string eid)
+        {
+            string sql = "select * from `case` where `P_ID` = '" + Convert.ToInt32(pid) + "' and `E_ID` = '" + Convert.ToInt32(eid) + "'";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
     }  

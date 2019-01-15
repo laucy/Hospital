@@ -31,7 +31,15 @@ namespace Hospital.Views.SystemManagement.InstrumentManagement
                 Response.Write("<script language=javascript>window.alert('更新成功！');</script>");
             else
                 Response.Write("<script language=javascript>window.alert('更新失败！');</script>");
-
+            string iid = Request.QueryString["I_ID"];
+            if (iid != "")
+            {
+                List<Instrument> instruments = Instrument_C.Select(iid);
+                I_ID.Value = instruments[0].I_ID.ToString();
+                I_Name.Value = instruments[0].I_Name;
+                I_Number.Value = instruments[0].I_Number.ToString();
+                DE_ID.Value = instruments[0].DE_ID.ToString();
+            }
         }
 
         protected void delete_Click(object sender, EventArgs e)

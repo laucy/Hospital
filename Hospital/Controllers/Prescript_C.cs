@@ -56,6 +56,24 @@ namespace Hospital.Controllers
             }
             return true;
         }
+        public static List<Prescript> SelectPrescript(String info)
+        {
+            
+            string sql = "SELECT * FROM `hospital`.`prescript` WHERE`D_Name` LIKE '%" + info + "%'";
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (odbcDataReader.HasRows)
+            {
+                List<Prescript> list = Prescript.getList(odbcDataReader);
+                odbcConnection.Close();
+                return list;
+            }
+            else
+                odbcConnection.Close();
+            return null;
+        }
     }
     
 }

@@ -25,7 +25,7 @@ namespace Hospital.Views.LLogin
             if (user != null)
             {
                 if (user.U_Role == "1")//护士跳转的网页1
-                    Response.Redirect("/Views/Index/NurseIndex.aspx");
+                    Response.Redirect("/Views/Index/Nurse1Index.aspx");
                 else if (user.U_Role == "2")//财务人员跳转的首页2
                     Response.Redirect("/Views/Index/CashierIndex.aspx");
                 else if (user.U_Role == "3")//医生跳转的首页3

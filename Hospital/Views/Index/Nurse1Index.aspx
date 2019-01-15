@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Hospital.Views.Login.Admin1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Nurse1Index.aspx.cs" Inherits="Hospital.Views.Index.Nurse1Index" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,33 +92,21 @@
      <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Index/Admin.aspx">
+                        <a class="nav-link" href="../../Index/Nurse1Index.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/DepartmentManage/DepartmentManage.aspx">
-                            <span class="menu-title">科室管理</span>
+                        <a class="nav-link" href="../../Views/Index/NurseIndex.aspx">
+                            <span class="menu-title">病床管理</span>
                             <i class="mdi mdi-view-grid menu-icon "></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/EmployeeManagement/Employeemanagement.aspx">
-                            <span class="menu-title">员工管理</span>
+                        <a class="nav-link" href="../../Views/Nurse/Nurse_AdviceManage.aspx">
+                            <span class="menu-title">医嘱查询</span>
                             <i class="mdi mdi-account-multiple menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/InstrumentManagement/InstrumrntManagement.aspx">
-                            <span class="menu-title">仪器管理</span>
-                            <i class="mdi mdi-flask-empty-outline  menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/Sickbed/SickbedManage.aspx">
-                            <span class="menu-title">病床管理</span>
-                            <i class="mdi mdi-hotel menu-icon"></i>
                         </a>
                     </li>
                 </ul>

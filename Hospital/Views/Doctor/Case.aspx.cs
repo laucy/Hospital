@@ -89,24 +89,31 @@ namespace Hospital.Views.Doctor
         protected void Button2_Click1(object sender, EventArgs e)
         {
             int i=0;
+            String Doctorid;
             String s = patient_ID.Value.ToString();
             if (int.TryParse(s, out i) == false)
                 Response.Write("<script language=javascript>window.alert('病人ID输入格式不正确！');</script>");
             else
             {
+                Doctorid = Session["uid"].ToString();
                 if (Patient_C.isExit(s) == false)
                     Response.Write("<script language=javascript>window.alert('该病人ID不存在！');</script>");
                 else
                 {
-                    patient1 = Patient_C.GetPatientinformation(s);
-                    name1.Value = " 姓名：" + patient1[0].P_Name + "";
-                    sex1.Value = " 性别：" + patient1[0].P_Sex + "";
-                    age1.Value = " 年龄：" + Convert.ToString(patient1[0].P_Age) + "";
-                    phone1.Value = " 手机号：" + Convert.ToString(patient1[0].P_Phone) + "";
-                    name1.Visible = true;
-                    sex1.Visible = true;
-                    age1.Visible = true;
-                    phone1.Visible = true;
+                    if (Case_C.register(s, Doctorid) == false)
+                        Response.Write("<script language=javascript>window.alert('该病人挂号不成功！');</script>");
+                    else
+                    {
+                        patient1 = Patient_C.GetPatientinformation(s);
+                        name1.Value = " 姓名：" + patient1[0].P_Name + "";
+                        sex1.Value = " 性别：" + patient1[0].P_Sex + "";
+                        age1.Value = " 年龄：" + Convert.ToString(patient1[0].P_Age) + "";
+                        phone1.Value = " 手机号：" + Convert.ToString(patient1[0].P_Phone) + "";
+                        name1.Visible = true;
+                        sex1.Visible = true;
+                        age1.Visible = true;
+                        phone1.Visible = true;
+                    }
                 }
             }
         }

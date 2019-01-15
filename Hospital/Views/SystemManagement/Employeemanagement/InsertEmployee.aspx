@@ -91,34 +91,34 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="PatientIndex.aspx">
+                        <a class="nav-link" href="../../Index/Admin.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientCaseSearch/PatientCaseSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/DepartmentManage/DepartmentManage.aspx">
                             <span class="menu-title">科室管理</span>
                             <i class="mdi mdi-view-grid menu-icon "></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/EmployeeManagement/Employeemanagement.aspx">
                             <span class="menu-title">员工管理</span>
                             <i class="mdi mdi-account-multiple menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/InstrumentManagement/InstrumrntManagement.aspx">
                             <span class="menu-title">仪器管理</span>
                             <i class="mdi mdi-flask-empty-outline  menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/Sickbed/SickbedManage.aspx">
                             <span class="menu-title">病床管理</span>
                             <i class="mdi mdi-hotel menu-icon"></i>
                         </a>
@@ -137,7 +137,7 @@
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">药品入库</h4>
+                                <h4 class="card-title">增加员工</h4>
                                 <form runat="server">
                                     <div class="form-group">
                                         <label>员工ID</label>
@@ -172,12 +172,12 @@
                                         <div class="form-group">
                                             <label>职位</label>
                                             <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" id="E_position" runat="server" />
+                                                <input type="text" class="form-control file-upload-info" id="E_position" runat="server" placeholder="护士请输入1，财务人员请输入2，医生请填入3，药品管理员请输入4，系统管理员请输入5，病人请输入6"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>手机号</label>
-                                            <div class="input-group col-xs-12">
+                                            <div class="input-group col-xs-12" >
                                                 <input type="text" class="form-control file-upload-info" id="E_phone" runat="server" />
                                             </div>
                                         </div>

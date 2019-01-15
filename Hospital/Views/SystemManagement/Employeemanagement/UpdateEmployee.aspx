@@ -94,31 +94,31 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="PatientIndex.aspx">
+                        <a class="nav-link" href="../../Index/Admin.aspx">
                             <span class="menu-title">首页</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientCaseSearch/PatientCaseSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/DepartmentManage/DepartmentManage.aspx">
                             <span class="menu-title">科室管理</span>
                             <i class="mdi mdi-view-grid menu-icon "></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/EmployeeManagement/Employeemanagement.aspx">
                             <span class="menu-title">员工管理</span>
                             <i class="mdi mdi-account-multiple menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/InstrumentManagement/InstrumrntManagement.aspx">
                             <span class="menu-title">仪器管理</span>
                             <i class="mdi mdi-flask-empty-outline  menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+                        <a class="nav-link" href="../../SystemManagement/Sickbed/SickbedManage.aspx">
                             <span class="menu-title">病床管理</span>
                             <i class="mdi mdi-hotel menu-icon"></i>
                         </a>
@@ -137,7 +137,7 @@
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">药品入库</h4>
+                                <h4 class="card-title">员工信息</h4>
                                 <form runat="server">
                                     <div class="form-group">
                                         <label>员工ID</label>

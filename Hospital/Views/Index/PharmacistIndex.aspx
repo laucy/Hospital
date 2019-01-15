@@ -125,26 +125,42 @@
                 </ul>
             </nav>
             <!-- partial -->
-            <div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="row">
-                        <div class="col-12">
-
-                        </div>
-                    </div>
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                                <i class="mdi mdi-home"></i>
-                            </span>
-                            关心病人，服务病人！
-                        </h3>
-                    </div>
-                    <div class="row">
-                    </div>
-                </div>
-                <!-- content-wrapper ends -->
+         <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-12">
+			
             </div>
+          </div>
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="mdi mdi-home"></i>                 
+              </span>
+              关心病人，服务病人！
+            </h3>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">              
+                  <div class="row mt-3">
+                    <div class="col-6 pr-1">
+                      <img src="../../images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
+                    </div>
+                    <div class="col-6 pl-1">
+                      <img src="../../images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
+                    </div>
+                  </div>               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->       
+      </div>
             <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->

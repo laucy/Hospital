@@ -15,7 +15,7 @@ namespace Hospital.Controllers
         {
             OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
             sqlConnection1.Open();
-            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where DE_ID='" + dep + "'", sqlConnection1);
+            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where D_ID='" + dep + "'", sqlConnection1);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
 
             if (odbcDataReader.HasRows)

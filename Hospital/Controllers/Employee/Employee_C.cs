@@ -99,5 +99,19 @@ namespace Hospital.Controllers
             string sql = "DELETE FROM `hospital`.`Employee` WHERE E_ID=" + eid;
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
+        public static bool Exist(int eid)
+        {
+            string sql = "select * from `hospital`.`employee` where E_ID='" + eid + "'";
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (!odbcDataReader.HasRows)//药品ID不存在 返回空
+            {
+                return false;
+            }
+            else
+                return true;
+        }
     }
 }

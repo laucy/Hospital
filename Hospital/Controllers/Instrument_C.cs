@@ -60,5 +60,19 @@ namespace Hospital.Controllers
             string sql = "DELETE FROM `hospital`.`instrument` WHERE I_ID=" + iid;
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
+        public static bool isExert(int iid)
+        {
+            string sql = "select * from `hospital`.`instrument` where I_ID='" + iid + "'";
+            OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
+            odbcConnection.Open();
+            OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (!odbcDataReader.HasRows)//仪器ID不存在 返回空
+            {
+                return false;
+            }
+            else
+                return true;
+        }
     }
 }

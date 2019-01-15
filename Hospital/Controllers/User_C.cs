@@ -34,5 +34,12 @@ namespace Hospital.Controllers
                 "values('" + Convert.ToInt32(patientid) + "',666666,6)";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
+        //增加员工id和密码
+        public static bool Inserteid(String employeeid,String position)
+        {
+            String sql= "insert into `hospital`.`user` ( `U_Name`, `U_Password`,`U_Role`) " +
+                "values('" + Convert.ToInt32(employeeid) + "',888888,'"+position+"')";
+            return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
+        }
     }
 }
