@@ -18,7 +18,7 @@ namespace Hospital.Views.SystemManagement.Sickbed
             sickbedinfo = Sickbed_C.Getinfobyrid("");
             for(int i = 0; i < sickbedinfo.Count; i++)
             {
-                dename[i] = Department_C.DE_seekname(sickbedinfo[i].D_ID.ToString()).DE_Name;
+                dename[i] = Department_C.DE_seekname(sickbedinfo[i].DE_ID.ToString()).DE_Name;
             }
             if (!IsPostBack)
             {
@@ -38,7 +38,7 @@ namespace Hospital.Views.SystemManagement.Sickbed
                 {
                     for (int i = 0; i < sickbedinfo.Count; i++)
                     {
-                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].D_ID.ToString()).DE_Name;
+                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].DE_ID.ToString()).DE_Name;
                     }
                 }
             }
@@ -49,7 +49,7 @@ namespace Hospital.Views.SystemManagement.Sickbed
                 {
                     for (int i = 0; i < sickbedinfo.Count; i++)
                     {
-                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].D_ID.ToString()).DE_Name;
+                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].DE_ID.ToString()).DE_Name;
                     }
                 }
             }
@@ -60,7 +60,7 @@ namespace Hospital.Views.SystemManagement.Sickbed
                 {
                     for (int i = 0; i < sickbedinfo.Count; i++)
                     {
-                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].D_ID.ToString()).DE_Name;
+                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].DE_ID.ToString()).DE_Name;
                     }
                 }
             }

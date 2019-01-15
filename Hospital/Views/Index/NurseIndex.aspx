@@ -24,28 +24,30 @@
             else
                 alert("分配失败，请检查输入信息是否有误！");
         }
-        function AddTable(rid, sid, did, sbool) {
+        function AddTable(rid,dename,sid, did, sbool) {
             if (sid != "0")
             {
                 var tbody = document.getElementById('tbody_info');
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
-                td1.innerHTML = rid;
-                var td2 = document.createElement('td');
-                td2.innerHTML = sid;
+                td1.innerHTML = rid;   
+                var td2= document.createElement('td');
+                td2.innerHTML = dename;  
                 var td3 = document.createElement('td');
-                td3.innerHTML = did;
+                td3.innerHTML = sid;
+                var td4 = document.createElement('td');
+                td4.innerHTML = did;
                 var la = document.createElement('label');
                 la.innerHTML = "占";
                 la.className = "badge badge-danger";
                 la.id = sid;
-                var td4 = document.createElement('td');
-                td4.appendChild(la);
+                var td5 = document.createElement('td');
+                td5.appendChild(la);
                 if (sbool == '0') {
                     la.innerHTML = "空";
                     la.className = "badge badge-info";
                     la.addEventListener("click", function () {
-                        var c = document.getElementById('Case_ID').value;
+                        var c = document.getElementById('Patient_ID').value;
                         if (c == "")
                         {
                             alert("请输入病人住院编号！")
@@ -60,6 +62,7 @@
                 tr.appendChild(td2);
                 tr.appendChild(td3);
                 tr.appendChild(td4);
+                tr.appendChild(td5);
                 tbody.appendChild(tr);
             }          
         }
@@ -67,23 +70,21 @@
     <title>医护工作站</title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form runat="server">
     <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo"/> 医护工作站</a>
+        <a class="navbar-brand brand-logo" href="NurseIndex.aspx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/hlogo.jpg" alt="logo"/> 医护工作站</a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
                 <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                         <i class="input-group-text border-0 mdi mdi-magnify"></i>
                     </div>
                     <input type="text" class="form-control bg-transparent border-0" placeholder="查询" />
                 </div>
-            </form>
         </div>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
@@ -143,14 +144,14 @@
      <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">      
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <span class="menu-title" id="show_depart" runat="server"></span>
+            <a class="nav-link" href="/Views/Index/Nurse1Index.aspx">
+              <span class="menu-title">首页</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Views/Index/NurseIndex.aspx">
-              <span class="menu-title"id="func1">分配病床</span>
+            <a class="nav-link" href="/Views/Index/Nurse1Index.aspx">
+              <span class="menu-title">分配病床</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
           </li>
@@ -169,16 +170,30 @@
          <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">患者信息</h4>                    
-                  <form class="form-sample">
-                    <label><label style="color:red">*</label><label class="card-description">为必填项</label>                                       
-                    </label>
+                  <h4 class="card-title">患者信息</h4>                                   
+                     <div class="row">
+                       <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">病人编号</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Patient_ID" runat="server"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <div class="col-sm-3">
+                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-gradient-primary mr-2" Text="查询" OnClick="search_Click"/>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
 			        <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">患者姓名</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="text" id="pname" runat="server" readonly="true"  class="form-control" />
                           </div>
                         </div>
                       </div>
@@ -186,7 +201,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">年龄</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="text" id="patientage" runat="server" readonly="true"  class="form-control" />
                           </div>
                         </div>
                       </div>
@@ -196,39 +211,42 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">性别</label>
                           <div class="col-sm-9">
-                            <select class="form-control">
-                              <option>男</option>
-                              <option>女 </option>
-                            </select>
+                            <input class="form-control" type="text" id="patientsex" readonly="true" runat="server"/>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                     <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label"><label style="color:red">*</label>住院编号</label>
+                          <label class="col-sm-3 col-form-label">联系方式</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="Case_ID" runat="server"/>
+                            <input type="text" class="form-control" readonly="true" runat="server" id="pphone" />
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      </div>                      
+                  </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">备注</label>
+                          <label class="col-sm-3 col-form-label">科室</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" readonly="true" id="pdepart" runat="server" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">主治医生</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" readonly="true" id="pdoctor" runat="server" />
                           </div>
                         </div>
                       </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
           </div>
-
-            <div class="col-lg-6 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body" id="div_info">
                   <h4 class="card-title">床位一览</h4>
@@ -236,6 +254,7 @@
                     <thead>
                       <tr>
                         <th>病房</th>
+                        <th>科室</th>
                         <th>床位</th>
                         <th>病人</th>
                         <th>状态</th>

@@ -11,11 +11,28 @@ namespace Hospital.Controllers
 {
     public class Sickbed_C
     {
-        public static List<Sickbed> SickBed_Info(string dep)
+        public static List<Sickbed> SickBed_Info()
         {
             OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
             sqlConnection1.Open();
-            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where DE_ID='" + dep + "'", sqlConnection1);
+            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed", sqlConnection1);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+
+            if (odbcDataReader.HasRows)
+            {
+                List<Sickbed> list = Sickbed.getList(odbcDataReader);
+                sqlConnection1.Close();
+                return list;
+            }
+            else
+                sqlConnection1.Close();
+            return null;
+        }
+        public static List<Sickbed> SickBedInfobyde(string deid)
+        {
+            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
+            sqlConnection1.Open();
+            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where `DE_ID`='"+deid+"'", sqlConnection1);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
 
             if (odbcDataReader.HasRows)
@@ -30,9 +47,13 @@ namespace Hospital.Controllers
         }
         public static bool DistributeBed(string sid, string cid)
         {
-            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
-            sqlConnection1.Open();            
-            OdbcCommand odbcCommand = new OdbcCommand("UPDATE hospitalization SET S_ID='" + sid + "' WHERE C_ID='" + cid + "'", sqlConnection1);
+            DateTime hin = DateTime.Now;
+            DateTime hout = DateTime.Now;
+            float hsum = 0;
+            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection(); 
+             sqlConnection1.Open();            
+            OdbcCommand odbcCommand = new OdbcCommand("Insert into `hospitalization`(C_ID,S_ID,H_In,H_Out,H_Sum) " +
+                "values('"+ cid +"','"+sid+"','"+hin+ "','" + hout + "','"+hsum+"')", sqlConnection1);
             if(odbcCommand.ExecuteNonQuery() == 1)
             {
                 odbcCommand = new OdbcCommand("UPDATE sickbed SET S_Bool='1' WHERE S_ID='" + sid + "'", sqlConnection1);

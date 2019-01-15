@@ -137,7 +137,7 @@
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">药品入库</h4>
+                                <h4 class="card-title">增添医护信息</h4>
                                 <form runat="server">
                                     <div class="form-group">
                                         <label>员工ID</label>
