@@ -74,7 +74,16 @@ namespace Hospital.Views.SystemManagement.Sickbed
                 if (result == true) {
                     Response.Write("<script language=javascript>window.alert('插入成功！');</script>");
                     sickbedid.Text = "";
-                    roomid.Text = "";                    
+                    roomid.Text = "";
+                    sickbedinfo = Sickbed_C.Getinfobyrid("");
+                    for (int i = 0; i < sickbedinfo.Count; i++)
+                    {
+                        dename[i] = Department_C.DE_seekname(sickbedinfo[i].DE_ID.ToString()).DE_Name;
+                    }
+                    List<Department> de = Department_C.GetDepartmentName();
+                    this.denamein.DataSource = de;
+                    this.denamein.DataTextField = "DE_Name";
+                    this.denamein.DataBind();
                 }
                 else
                 {

@@ -24,17 +24,17 @@ namespace Hospital.Views.LLogin
             User user = User_C.U_Login(id, psw);
             if (user != null)
             {
-                if (user.U_Role == "1")//护士跳转的网页1
+                if (user.U_Role == "4")//护士跳转的网页4
                     Response.Redirect("/Views/Index/Nurse1Index.aspx");
-                else if (user.U_Role == "2")//财务人员跳转的首页2
+                else if (user.U_Role == "1")//财务人员跳转的首页1
                     Response.Redirect("/Views/Index/CashierIndex.aspx");
-                else if (user.U_Role == "3")//医生跳转的首页3
+                else if (user.U_Role == "2")//医生跳转的首页2
                     Response.Redirect("/Views/Index/DoctorIndex.aspx");
-                else if (user.U_Role == "4")//药品管理员跳转的首页4
+                else if (user.U_Role == "3")//药品管理员跳转的首页3
                     Response.Redirect("/Views/Index/PharmacistIndex.aspx");
-                else if (user.U_Role == "5")//系统管理员跳转的首页5
+                else if (user.U_Role == "6")//系统管理员跳转的首页6
                     Response.Redirect("/Views/Index/Admin.aspx");
-                else if (user.U_Role == "6")//病人跳转的首页
+                else if (user.U_Role == "5")//病人跳转的首页5
                     Response.Redirect("/Views/Index/PatientIndex.aspx");
             }
             else

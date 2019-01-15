@@ -40,7 +40,7 @@ namespace Hospital.Controllers
             List<Hospitalization> hospitalizations = SelectHospitalization(patientid);
             if (hospitalizations != null)
             {
-                int days = (hout - hospitalizations[0].H_In).Days;
+                int days = (hout - hospitalizations[0].H_In).Days+1;
                 hsum = days * 50;
             }    
             string sql = "UPDATE `hospital`.`hospitalization`"

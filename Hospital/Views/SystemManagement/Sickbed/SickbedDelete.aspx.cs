@@ -21,7 +21,7 @@ namespace Hospital.Views.SystemManagement.Sickbed
                 sickbedinfo = Sickbed_C.Getinfobysid(sid);
                 sidinput.Value = sid;
                 ridinput.Value = sickbedinfo[0].R_ID.ToString();
-                dnameinput.Value= Department_C.DE_seekname(sickbedinfo[0].D_ID.ToString()).DE_Name;
+                dnameinput.Value= Department_C.DE_seekname(sickbedinfo[0].DE_ID.ToString()).DE_Name;
                 if (sickbedinfo[0].S_Bool == 0)
                     sboolinput.Value = "空";
                 else
@@ -46,7 +46,7 @@ namespace Hospital.Views.SystemManagement.Sickbed
             sickbedinfo = Sickbed_C.Getinfobysid(sid);
             sidinput.Value = sid;
             ridinput.Value = sickbedinfo[0].R_ID.ToString();
-            dnameinput.Value = Department_C.DE_seekname(sickbedinfo[0].D_ID.ToString()).DE_Name;
+            dnameinput.Value = Department_C.DE_seekname(sickbedinfo[0].DE_ID.ToString()).DE_Name;
             if (sickbedinfo[0].S_Bool == 0)
                 sboolinput.Value = "空";
             else
