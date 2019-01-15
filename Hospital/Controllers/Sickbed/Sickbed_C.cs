@@ -11,11 +11,28 @@ namespace Hospital.Controllers
 {
     public class Sickbed_C
     {
-        public static List<Sickbed> SickBed_Info(string dep)
+        public static List<Sickbed> SickBed_Info()
         {
             OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
             sqlConnection1.Open();
-            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where D_ID='" + dep + "'", sqlConnection1);
+            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed", sqlConnection1);
+            OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
+
+            if (odbcDataReader.HasRows)
+            {
+                List<Sickbed> list = Sickbed.getList(odbcDataReader);
+                sqlConnection1.Close();
+                return list;
+            }
+            else
+                sqlConnection1.Close();
+            return null;
+        }
+        public static List<Sickbed> SickBedInfobyde(string deid)
+        {
+            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
+            sqlConnection1.Open();
+            OdbcCommand odbcCommand = new OdbcCommand("select * from sickbed where `DE_ID`='"+deid+"'", sqlConnection1);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
 
             if (odbcDataReader.HasRows)
@@ -30,9 +47,13 @@ namespace Hospital.Controllers
         }
         public static bool DistributeBed(string sid, string cid)
         {
-            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection();
-            sqlConnection1.Open();            
-            OdbcCommand odbcCommand = new OdbcCommand("UPDATE hospitalization SET S_ID='" + sid + "' WHERE C_ID='" + cid + "'", sqlConnection1);
+            DateTime hin = DateTime.Now;
+            DateTime hout = DateTime.Now;
+            float hsum = 0;
+            OdbcConnection sqlConnection1 = DBManager.GetOdbcConnection(); 
+             sqlConnection1.Open();            
+            OdbcCommand odbcCommand = new OdbcCommand("Insert into `hospitalization`(C_ID,S_ID,H_In,H_Out,H_Sum) " +
+                "values('"+ cid +"','"+sid+"','"+hin+ "','" + hout + "','"+hsum+"')", sqlConnection1);
             if(odbcCommand.ExecuteNonQuery() == 1)
             {
                 odbcCommand = new OdbcCommand("UPDATE sickbed SET S_Bool='1' WHERE S_ID='" + sid + "'", sqlConnection1);
@@ -88,7 +109,7 @@ namespace Hospital.Controllers
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
             string sql = "SELECT * FROM `hospital`.`sickbed` "
-                + "WHERE `D_ID`= '" + deid + "'";
+                + "WHERE `DE_ID`= '" + deid + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
             if (odbcDataReader.HasRows)
@@ -105,7 +126,7 @@ namespace Hospital.Controllers
         public static bool Insert(string sid, string rid,string sbool,string dename )
         {
             string deid = Department_C.DE_seekid(dename);
-            string sql = "insert into `hospital`.`sickbed` (`S_ID`,`R_ID`,`S_Bool`,`D_ID`) values('" + sid + "','" + rid + "','" + sbool + "','" + deid + "')";
+            string sql = "insert into `hospital`.`sickbed` (`S_ID`,`R_ID`,`S_Bool`,`DE_ID`) values('" + sid + "','" + rid + "','" + sbool + "','" + deid + "')";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //update
@@ -113,7 +134,7 @@ namespace Hospital.Controllers
         {
             string deid = Department_C.DE_seekid(dename);
             string sql = "UPDATE `hospital`.`sickbed` SET `R_ID`='" + rid + "',  `S_Bool`='" + sbool + "'," +
-                " `D_ID`='" + deid + "' WHERE `S_ID`='" + sid + "'";
+                " `DE_ID`='" + deid + "' WHERE `S_ID`='" + sid + "'";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         //delete

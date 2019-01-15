@@ -38,7 +38,7 @@ namespace Hospital.Controllers
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "select *from patient where P_ID='" + Convert.ToInt32(pid) + "'";
+            string sql = "select * from `patient` where P_ID='" + Convert.ToInt32(pid) + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
             if (odbcDataReader.HasRows)
@@ -55,7 +55,7 @@ namespace Hospital.Controllers
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "select * from patient where P_ID='" + Convert.ToInt32(pid) + "'";
+            string sql = "select * from `patient` where P_ID='" + Convert.ToInt32(pid) + "'";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
             if (odbcDataReader.HasRows)
@@ -79,7 +79,7 @@ namespace Hospital.Controllers
             {
                 List<Hospitalization> list = Hospitalization.getList(odbcDataReader);
                 Hospitalization hospitalization = list[0];
-                sql = "select * from ccase where C_ID='" + hospitalization.C_ID + "'";
+                sql = "select * from `hospital`.`case` where C_ID='" + hospitalization.C_ID + "'";
                 odbcCommand = new OdbcCommand(sql, odbcConnection);
                 odbcDataReader = odbcCommand.ExecuteReader();
                 if(odbcDataReader.HasRows)

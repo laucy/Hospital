@@ -11,16 +11,16 @@ namespace Hospital.Models
         public int S_ID { get; set; }
         public int R_ID { get; set; }
         public int S_Bool { get; set; }
-        public int D_ID { get; set; }
+        public int DE_ID { get; set; }
 
         public Sickbed() { }
 
-        public Sickbed(int sid, int rid, int sbool,int did)
+        public Sickbed(int sid, int rid, int sbool,int deid)
         {
             S_ID = sid;
             R_ID = rid;
             S_Bool = sbool;
-            D_ID = did;
+            DE_ID = deid;
         }
 
         public static List<Sickbed> getList(OdbcDataReader reader)
@@ -33,7 +33,7 @@ namespace Hospital.Models
                 sickbeds.S_ID = reader.GetInt32(0);
                 sickbeds.R_ID = reader.GetInt32(1);
                 sickbeds.S_Bool = reader.GetInt32(2);
-                sickbeds.D_ID = reader.GetInt32(3);                
+                sickbeds.DE_ID = reader.GetInt32(3);                
                 list.Add(sickbeds);
             }
             return list;

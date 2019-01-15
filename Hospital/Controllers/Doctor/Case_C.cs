@@ -53,11 +53,11 @@ namespace Hospital.Controllers
             return null;
         }
         //根据科室获取所有病人病例信息
-        public static List<Case> GetAll_Info(string deid)
+        public static List<Case> GetAll_Info()
         {
             OdbcConnection odbcConnection = DB.DBManager.GetOdbcConnection();
             odbcConnection.Open();
-            string sql = "select * from `case` where DE_ID='" + deid+ "'";
+            string sql = "select * from `hospital`.`case`";
             OdbcCommand odbcCommand = new OdbcCommand(sql, odbcConnection);
             OdbcDataReader odbcDataReader = odbcCommand.ExecuteReader();
             if (odbcDataReader.HasRows)
@@ -68,7 +68,7 @@ namespace Hospital.Controllers
             }
             odbcConnection.Close();
             return null;
-        }
+        }        
         //根据ID补充病历表
         public static bool UpdateCase(int P_ID,string C_Complain,string C_Diagnose,string C_Advice,string H_Flag)
         {
