@@ -280,7 +280,7 @@
                         <tr>
                          <td><%=hospitalizations[i].H_In.ToShortDateString() %></td>
                          <td><%=hospitalizations[i].H_Out.ToShortDateString() %></td>
-                         <td><%=(hospitalizations[i].H_Out-hospitalizations[i].H_In).Days %></td>
+                         <td><%=(hospitalizations[i].H_Out-hospitalizations[i].H_In).Days+1 %></td>
                          <td>50</td>    
                          <td><%=hospitalizations[i].H_Sum %></td>                      
                        </tr> 

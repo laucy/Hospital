@@ -52,7 +52,7 @@ namespace Hospital.Controllers
         }
         public static bool Update(int iid, string iname, int inumber, int deid)
         {
-            string sql = "UPDATE `hospital`.`instrument` SET I_Name='" + iname + "',I_Number='" + inumber + "',DE_ID='" +deid + "'";
+            string sql = "UPDATE `hospital`.`instrument` SET I_Name='" + iname + "',I_Number='" + inumber + "',DE_ID='" +deid + "' WHERE I_ID='"+iid+"'";
             return Tool.ExecuteSQL.ExecuteNonQuerySQL_GetBool(sql);
         }
         public static bool DeleteByID(string iid)
