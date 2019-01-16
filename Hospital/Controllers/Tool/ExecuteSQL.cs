@@ -15,8 +15,6 @@ namespace Hospital.Controllers.Tool
             OdbcConnection connection = DB.DBManager.GetOdbcConnection();
             connection.Open();
             OdbcCommand command = new OdbcCommand(sql, connection);
-
-
             int i = command.ExecuteNonQuery();
             connection.Close();
             return (i > 0) ? true : false;

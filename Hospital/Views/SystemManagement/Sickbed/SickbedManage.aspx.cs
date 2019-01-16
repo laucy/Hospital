@@ -70,15 +70,30 @@ namespace Hospital.Views.SystemManagement.Sickbed
         {
             if(sickbedid.Text!="" && roomid.Text!=""&&denamein.Text!="" && avai.Text != "")
             {
-                bool result = Sickbed_C.Insert(sickbedid.Text, roomid.Text, avai.Text, denamein.Text);
-                if (result == true) {
-                    Response.Write("<script language=javascript>window.alert('插入成功！');</script>");
-                    sickbedid.Text = "";
-                    roomid.Text = "";                    
+                List<Models.Sickbed> sickbedresult = Sickbed_C.Getinfobysid(sickbedid.Text);
+                if (sickbedresult == null)
+                {
+                    bool result = Sickbed_C.Insert(sickbedid.Text, roomid.Text, avai.Text, denamein.Text);
+                    if (result == true)
+                    {
+                        Response.Write("<script language=javascript>window.alert('插入成功！');</script>");
+                        sickbedid.Text = "";
+                        roomid.Text = "";
+                        List<Department> de = Department_C.GetDepartmentName();
+                        this.denamein.DataSource = de;
+                        this.denamein.DataTextField = "DE_Name";
+                        this.denamein.DataBind();
+
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>window.alert('插入失败！请重新检查信息是否正确！');</script>");
+                    }
                 }
                 else
                 {
-                    Response.Write("<script language=javascript>window.alert('插入失败！请重新检查信息是否正确！');</script>");
+                    Response.Write("<script language=javascript>window.alert('该病床号已存在！');</script>");
+
                 }
 
             }

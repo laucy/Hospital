@@ -29,7 +29,7 @@ namespace Hospital.Controllers
                 odbcConnection.Close();
             return null;
         }
-        public static bool AddTest(List<Test> tests)//order属性E_ID传递进来，其他不用
+        public static bool AddTest(List<Test> tests)//属性E_ID传递进来，其他不用
         {
             foreach (Test test in tests)
             {

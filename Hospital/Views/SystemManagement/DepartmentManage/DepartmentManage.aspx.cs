@@ -38,16 +38,26 @@ namespace Hospital.Views.SystemManagement.DepartmentManage
             }
             else
             {
-                bool result=Department_C.Insert(deidtext.Value,denametext.Value);
-                departmentinfo = Department_C.GetDepartmentinfo();
-                if (result == true)
+                List<Department> desearchresult = Department_C.GetDeinfobyID(deidtext.Value);
+                if (desearchresult == null)
                 {
-                    Response.Write("<script language=javascript>window.alert('插入成功！');</script>");
+                    bool result = Department_C.Insert(deidtext.Value, denametext.Value);
+                    departmentinfo = Department_C.GetDepartmentinfo();
+                    if (result == true)
+                    {
+                        Response.Write("<script language=javascript>window.alert('插入成功！');</script>");
+                        departmentinfo = Department_C.GetDepartmentinfo();
+
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>window.alert('插入失败！');</script>");
+
+                    }
                 }
                 else
                 {
-                    Response.Write("<script language=javascript>window.alert('插入失败！');</script>");
-
+                    Response.Write("<script language=javascript>window.alert('该科室已存在！');</script>");
                 }
             }            
         }

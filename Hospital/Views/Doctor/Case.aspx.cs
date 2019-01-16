@@ -78,12 +78,8 @@ namespace Hospital.Views.Doctor
                 str = "0";
           Case_C.UpdateCase(Convert.ToInt32(patient_ID.Value),Case_Complain.Value,Case_Diagnose.Value,Case_Advice.Value,str);
             Response.Write("<script language=javascript>window.alert('病历提交成功！');</script>");
-            String s = patient_ID.Value.ToString();
-            patient1 = Patient_C.GetPatientinformation(s);
-            name1.Value = " 姓名：" + patient1[0].P_Name + "";
-            sex1.Value = " 性别：" + patient1[0].P_Sex + "";
-            age1.Value = " 年龄：" + Convert.ToString(patient1[0].P_Age) + "";
-            phone1.Value = " 手机号：" + Convert.ToString(patient1[0].P_Phone) + "";
+         
+
         }
 
         protected void Button2_Click1(object sender, EventArgs e)

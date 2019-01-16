@@ -42,8 +42,7 @@ namespace Hospital.Views.SystemManagement.DepartmentManage
             bool result = Department_C.DeleteByID(deid.Value);
             if (result == true)
             {
-                Response.Write("<script language=javascript>window.alert('删除成功！');</script>");
-                Response.Redirect("DepartmentManage.aspx");
+                Response.Write("<script language=javascript>window.alert('删除成功！');window.location.href='DepartmentManage.aspx'</script>");
             }
             else
             {
