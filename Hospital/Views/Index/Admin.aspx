@@ -90,39 +90,39 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Index/Admin.aspx">
-                            <span class="menu-title">首页</span>
-                            <i class="mdi mdi-home menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/DepartmentManage/DepartmentManage.aspx">
-                            <span class="menu-title">科室管理</span>
-                            <i class="mdi mdi-view-grid menu-icon "></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/EmployeeManagement/Employeemanagement.aspx">
-                            <span class="menu-title">员工管理</span>
-                            <i class="mdi mdi-account-multiple menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/InstrumentManagement/InstrumrntManagement.aspx">
-                            <span class="menu-title">仪器管理</span>
-                            <i class="mdi mdi-flask-empty-outline  menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../Views/SystemManagement/Sickbed/SickbedManage.aspx">
-                            <span class="menu-title">病床管理</span>
-                            <i class="mdi mdi-hotel menu-icon"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <ul class="nav">      
+          <li class="nav-item">
+            <a class="nav-link" href="PatientIndex.aspx">
+              <span class="menu-title">首页</span>
+              <i class="mdi mdi-home menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../PatientSearch/PatientCaseSearch/PatientCaseSearch.aspx" >
+              <span class="menu-title">科室管理</span>
+              <i class="mdi mdi-view-grid menu-icon "></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+              <span class="menu-title">员工管理</span>
+              <i class="mdi mdi-account-multiple menu-icon"></i>
+            </a>
+          </li>
+             <li class="nav-item">
+            <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+              <span class="menu-title">仪器管理</span>
+              <i class="mdi mdi-flask-empty-outline  menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../PatientSearch/PatientBillSearch/PatientBillSearch.aspx">
+              <span class="menu-title">病床管理</span>
+              <i class="mdi mdi-hotel menu-icon"></i>
+            </a>
+          </li> 
+        </ul>
+      </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -145,12 +145,12 @@
                 <div class="card-body">              
                   <div class="row mt-3">
                     <div class="col-6 pr-1">
-                      <img src="../../images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_5.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_6.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                     <div class="col-6 pl-1">
-                      <img src="../../images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="../../images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_7.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="../../images/dashboard/img_8.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                   </div>               
                 </div>
